@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảo (Kevin) Nguyễn - Data Scientist </title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        min-height: 90vh;
+      }
+
+      .sidebar {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        padding: 40px 30px;
+        position: relative;
+      }
+
+      .profile-section {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .profile-img {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.2);
+        margin: 0 auto 20px;
+        background: #34495e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 84px;
+        color: #ecf0f1;
+        overflow: hidden;
+      }
+
+      .profile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .title {
+        font-size: 16px;
+        color: #bdc3c7;
+        font-style: italic;
+      }
+
+      .contact-info {
+        margin-bottom: 40px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      .contact-item i {
+        width: 20px;
+        margin-right: 15px;
+        color: #3498db;
+      }
+
+      .contact-item a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-item a:hover {
+        color: #3498db;
+        text-decoration: underline;
+      }
+
+      .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-title i {
+        margin-right: 10px;
+        color: #3498db;
+      }
+
+      .skills-list {
+        list-style: none;
+      }
+
+      .skills-list li {
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .skills-list li:before {
+        content: "▸";
+        color: #3498db;
+        margin-right: 10px;
+      }
+
+      .main-content {
+        padding: 40px;
+        background: white;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .content-columns {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+      }
+
+      @media (min-width: 1200px) {
+        .main-content {
+          padding: 40px 80px;
+        }
+      }
+
+      @media (min-width: 1400px) {
+        .main-content {
+          padding: 50px 100px;
+        }
+
+        .content-columns {
+          gap: 60px;
+        }
+      }
+
+      @media (min-width: 1600px) {
+        .content-columns {
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 40px;
+        }
+
+        .work-experience {
+          grid-column: 1 / 3;
+        }
+
+        .education {
+          grid-column: 3;
+        }
+      }
+
+      @media (max-width: 1300px) {
+        .content-columns {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      .summary {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border-left: 5px solid #3498db;
+      }
+
+      @media (min-width: 1600px) {
+        .summary {
+          padding: 35px 40px;
+          font-size: 16px;
+        }
+      }
+
+      .summary h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .summary h2 i {
+        margin-right: 10px;
+        color: #3498db;
+      }
+
+      .work-experience,
+      .education,
+      .early-career {
+        margin-bottom: 40px;
+      }
+
+      .work-experience h2,
+      .education h2,
+      .early-career h2 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      .work-experience h2 i,
+      .education h2 i,
+      .early-career h2 i {
+        margin-right: 10px;
+        color: #3498db;
+      }
+
+      .job,
+      .education-item {
+        margin-bottom: 30px;
+        padding: 25px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #3498db;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .job:hover,
+      .education-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+
+      .job-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+
+      .company {
+        font-size: 16px;
+        color: #3498db;
+        margin-bottom: 5px;
+      }
+
+      .duration {
+        font-size: 14px;
+        color: #7f8c8d;
+        background: #ecf0f1;
+        padding: 5px 10px;
+        border-radius: 15px;
+      }
+
+      .job-description {
+        list-style: none;
+      }
+
+      .job-description li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .job-description li:before {
+        content: "•";
+        color: #3498db;
+        position: absolute;
+        left: 0;
+      }
+
+      .certifications {
+        background: #2c3e50;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #e74c3c;
+      }
+
+      .cert-item {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: rgba(52, 73, 94, 0.8);
+        border-radius: 5px;
+        border-left: 3px solid #e74c3c;
+      }
+
+      .cert-title {
+        font-weight: bold;
+        color: #ecf0f1;
+      }
+
+      .cert-org {
+        color: #bdc3c7;
+        font-size: 14px;
+      }
+
+      .cert-title a {
+        color: #ecf0f1;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .cert-title a:hover {
+        color: #3498db;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1100px) {
+        .container {
+          grid-template-columns: 1fr;
+          margin: 10px;
+        }
+
+        .sidebar {
+          padding: 30px 20px;
+        }
+
+        .main-content {
+          padding: 30px;
+        }
+
+        .profile-img {
+          width: 200px;
+          height: 200px;
+          font-size: 60px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          padding: 20px;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+
+        .profile-img {
+          width: 150px;
+          height: 150px;
+          font-size: 48px;
+        }
+      }
+
+      /* PDF Button Styles */
+      .pdf-button-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .pdf-button {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .pdf-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+      }
+
+      .pdf-button i {
+        font-size: 16px;
+      }
+
+      /* Print Styles for PDF */
+      @media print {
+        body {
+          background: white !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+
+        .pdf-button-container {
+          display: none !important;
+        }
+
+        .container {
+          max-width: none !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          display: grid !important;
+          grid-template-columns: 300px 1fr !important;
+          min-height: auto !important;
+        }
+
+        .sidebar {
+          background: #2c3e50 !important;
+          padding: 20px 15px !important;
+          -webkit-print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        .main-content {
+          padding: 20px !important;
+        }
+
+        .profile-img {
+          width: 200px !important;
+          height: 200px !important;
+          font-size: 60px !important;
+        }
+
+        .content-columns {
+          grid-template-columns: 1fr 1.6fr !important;
+          gap: 30px !important;
+        }
+
+        .work-experience {
+          grid-column: 1 !important;
+        }
+
+        .education {
+          grid-column: 2 !important;
+        }
+
+        .job,
+        .education-item {
+          margin-bottom: 15px !important;
+          padding: 15px !important;
+          break-inside: avoid !important;
+        }
+
+        .summary {
+          margin-bottom: 20px !important;
+          padding: 20px !important;
+        }
+
+        .certifications {
+          background: #2c3e50 !important;
+          -webkit-print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+
+        .work-experience,
+        .education,
+        .early-career {
+          margin-bottom: 20px !important;
+        }
+
+        /* Ensure colors print correctly */
+        * {
+          -webkit-print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pdf-button-container">
+      <button id="savePdfBtn" class="pdf-button">
+        <i class="fas fa-file-pdf"></i>
+        Save as PDF
+      </button>
+    </div>
+    <div class="container">
+      <div class="sidebar">
+        <div class="profile-section">
+          <div class="profile-img">
+            <img
+              src="./image.jpg"
+              alt="Bảo (Kevin) Nguyễn"
+              onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';"
+            />
+          </div>
+          <div class="name">Bảo (Kevin) Nguyễn</div>
+          <div class="title">
+            Data Scientist | Financial Risk Manager (FRM) Designation
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+84 907 560 348</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>bao.nguyentanquoc@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Ho Chi Minh City - Viet Nam</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a
+              href="https://www.linkedin.com/in/bao-nguyen-tan-quoc-frm-50b629193/"
+              target="_blank"
+              style="color: #bdc3c7; text-decoration: none"
+              >LinkedIn</a
+            >
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a
+              href="https://github.com/nguyentanquocbao"
+              target="_blank"
+              style="color: #bdc3c7; text-decoration: none"
+              >Github</a
+            >
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-certificate"></i>
+            <a
+              href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW"
+              target="_blank"
+              style="color: #bdc3c7; text-decoration: none"
+              >FRM Digital Badge - Certified 2021</a
+            >
+          </div>
+        </div>
+
+        <div class="section-title">
+          <i class="fas fa-code"></i>
+          Skills
+        </div>
+        <ul class="skills-list">
+          <li>Statistical Modeling & Data Analysis (Python, SQL, SAS)</li>
+          <li>Risk Management (SBV, BASEL, ECB standard)</li>
+          <li>Machine Learning (Scikit-learn)</li>
+          <li>gradient boosting frameworks (Xgboost, LightGBM)</li>
+          <li>
+            Data Visualization & Reporting (Django, Dashboards hosted by Docker,
+            Power BI
+          </li>
+          <li>
+            Model Validation & Gorvenance (UAT, SAT, SIT, Smoke testing, and
+            Gorvenance frameworks)
+          </li>
+        </ul>
+
+        <div class="section-title" style="margin-top: 30px">
+          <i class="fas fa-language"></i>
+          Languages
+        </div>
+        <ul class="skills-list">
+          <li><strong>Vietnamese:</strong> First Language</li>
+          <li><strong>English:</strong> Proficient (TOEIC LR 965)</li>
+        </ul>
+
+        <div class="certifications" style="margin-top: 30px">
+          <div
+            class="section-title"
+            style="border-bottom: 2px solid #e74c3c; color: white"
+          >
+            <i class="fas fa-certificate"></i>
+            Certifications
+          </div>
+          <div class="cert-item">
+            <div class="cert-title">
+              <a
+                href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW"
+                target="_blank"
+                style="color: #ecf0f1; text-decoration: none"
+                >Financial Risk Manager (FRM)</a
+              >
+            </div>
+            <div class="cert-org">
+              Global Association of Risk Professionals (GARP)
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-title">
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/certificate/NNDZRH3SLSHA"
+                target="_blank"
+                style="color: #ecf0f1; text-decoration: none"
+                >Data Science Professional</a
+              >
+            </div>
+            <div class="cert-org">IBM</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-title">
+              <a
+                href="https://www.coursera.org/account/accomplishments/specialization/certificate/S7N55HXY8ZH7"
+                target="_blank"
+                style="color: #ecf0f1; text-decoration: none"
+                >SAS Programmer</a
+              >
+            </div>
+            <div class="cert-org">Coursera</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-title">
+              <a
+                href="https://www.coursera.org/account/accomplishments/certificate/QRB7VTEW4G3V"
+                target="_blank"
+                style="color: #ecf0f1; text-decoration: none"
+                >Machine Learning</a
+              >
+            </div>
+            <div class="cert-org">Stanford University (Coursera)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="summary">
+          <h2><i class="fas fa-user-circle"></i>Summary</h2>
+          <p>
+            Resourceful Data Scientist dedicated not only to delivering
+            impactful results but also to optimizing every available resource.
+            Driven by a strong willingness to learn and master new skills, I
+            continuously strive to enhance my expertise in risk management, AI
+            solutions, and advanced data analytics. Committed to leveraging
+            statistical modeling and innovative approaches to support sound
+            business decisions and foster sustainable organizational growth.
+          </p>
+        </div>
+
+        <div class="content-columns">
+          <div class="work-experience">
+            <h2><i class="fas fa-briefcase"></i>Work Experience</h2>
+
+            <div class="job">
+              <div class="job-header">
+                <div>
+                  <div class="company">
+                    Orient Commercial Bank (OCB) - Ho Chi Minh City
+                  </div>
+                  <div class="job-title">
+                    Strategic Risk Management Coordinator
+                  </div>
+                </div>
+                <div class="duration">2025/04 - now</div>
+              </div>
+              <ul class="job-description">
+                <li>
+                  Capital Adequacy Management & Reporting: create accurate and
+                  timely capital adequacy calculations, ensuring full alignment
+                  with State Bank of Vietnam (SBV) standards and international
+                  Basel frameworks.
+                </li>
+                <li>
+                  Risk Model Validation: Conduct comprehensive assessments and
+                  validations of diverse risk models, including ongoing
+                  validation and monitoring of credit scorecards (utilizing
+                  modern techniques like LightGBM) for auto credit and
+                  improvement.
+                </li>
+                <li>
+                  Strategic Risk Optimization: Collaborate closely with
+                  cross-functional teams to optimize risk management strategies,
+                  effectively balancing compliance with organizational growth
+                  objectives.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <div>
+                  <div class="company">Outliers - Remote</div>
+                  <div class="job-title">AI Trainer (11/2024 - now)</div>
+                </div>
+                <div class="duration">11/2024 - now</div>
+              </div>
+              <ul class="job-description">
+                <li>
+                  Evaluated AI-generated responses for accuracy, relevance,
+                  creativity, and alignment with intended outcomes.
+                </li>
+                <li>
+                  Provided detailed feedback to refine model performance,
+                  ensuring higher quality outputs and alignment with real-world
+                  applications.
+                </li>
+                <li>
+                  Deliver expertised coding, strategic content that only
+                  available in work place environments for AI to improve.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <div>
+                  <div class="company">
+                    Asia Commercial Bank (ACB) - Ho Chi Minh City
+                  </div>
+                  <div class="job-title">
+                    Quantitative Analyst (2021/09 - 2024/08)
+                  </div>
+                </div>
+                <div class="duration">2021/09 - 2024/08</div>
+              </div>
+              <ul class="job-description">
+                <li>
+                  Developed and implemented model applied for an auto-credit
+                  approval system under BASEL standards.
+                </li>
+                <li>
+                  Developed Basel FIRB models for Probability of Default (PD),
+                  Loss Given Default (LGD), and Exposure at Default (EAD).
+                </li>
+                <li>
+                  Conducted comprehensive risk reporting and data analysis using
+                  Power BI and Django dashboards.
+                </li>
+                <li>
+                  Gorvenance credits scoring system that able to auto-approve
+                  credit for SME customers
+                </li>
+                <li>
+                  Validate stress testing agorithm for portfolio risk which help
+                  bank to establish capital plan for operating activities.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="education">
+            <h2><i class="fas fa-graduation-cap"></i>Education Background</h2>
+
+            <div class="education-item">
+              <div class="job-header">
+                <div>
+                  <div class="company">Yuan Ze University - Taiwan</div>
+                  <div class="job-title">
+                    Master of Science in Finance (June 2021)
+                  </div>
+                </div>
+                <div class="duration">June 2021</div>
+              </div>
+              <ul class="job-description">
+                <li>Earned a Master of Science in Finance with 4.0/4.0 GPA.</li>
+                <li>Awarded the Study Gold Medal for performance.</li>
+                <li>
+                  Beneficiary of a full scholarship for two academic years.
+                </li>
+                <li>
+                  Participated into empirical financial and audit researches
+                </li>
+              </ul>
+            </div>
+            <div class="education-item">
+              <div class="job-header">
+                <div>
+                  <div class="company">Can Tho University - Vietnam</div>
+                  <div class="job-title">
+                    Bachelor's degree in finance and Banking (June 2015)
+                  </div>
+                </div>
+                <div class="duration">June 2015</div>
+              </div>
+              <ul class="job-description">
+                <li>
+                  Obtained a bachelor's degree in finance and Banking, achieving
+                  a 3.65/4.0 GPA
+                </li>
+                <li>
+                  Awarded multiple scholarships throughout the academic year.
+                </li>
+              </ul>
+            </div>
+
+            <h2 style="margin-top: 40px">
+              <i class="fas fa-seedling"></i>Early Career Experience
+            </h2>
+
+            <div class="job">
+              <div class="job-header">
+                <div>
+                  <div class="company">
+                    Viet Capital Commercial Joint Stock Bank - Can Tho
+                  </div>
+                  <div class="job-title">
+                    Credit Officer (First Professional Role)
+                  </div>
+                </div>
+                <div class="duration">2015/10 - 2019/07</div>
+              </div>
+              <ul class="job-description">
+                <li>
+                  Collected and analyzed financial data, resulting in 15%
+                  increase in approved loan amount each year while maintaining a
+                  1.50% default rate.
+                </li>
+                <li>
+                  Appraised properties offered as collateral and prepared
+                  comprehensive appraisal reports for loan approval processes.
+                </li>
+                <li>
+                  Verified loan utilization purposes and monitored clients'
+                  financial status to ensure compliance and risk mitigation.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("savePdfBtn")
+        .addEventListener("click", function () {
+          // Hide the PDF button temporarily
+          const pdfButton = document.querySelector(".pdf-button-container");
+          pdfButton.style.display = "none";
+
+          // Trigger print dialog
+          window.print();
+
+          // Show the PDF button again after print dialog
+          setTimeout(() => {
+            pdfButton.style.display = "block";
+          }, 100);
+        });
+
+      // Optional: Add keyboard shortcut (Ctrl+P or Cmd+P)
+      document.addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === "p") {
+          e.preventDefault();
+          document.getElementById("savePdfBtn").click();
+        }
+      });
+    </script>
+  </body>
+</html>
