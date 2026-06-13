@@ -1,870 +1,1674 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bảo (Kevin) Nguyễn - Data Scientist </title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px;
-      }
-      .container {
-        max-width: 1600px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        min-height: 90vh;
-      }
-
-      .sidebar {
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        color: white;
-        padding: 40px 30px;
-        position: relative;
-      }
-
-      .profile-section {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-
-      .profile-img {
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        border: 5px solid rgba(255, 255, 255, 0.2);
-        margin: 0 auto 20px;
-        background: #34495e;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 84px;
-        color: #ecf0f1;
-        overflow: hidden;
-      }
-
-      .profile-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .name {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      .title {
-        font-size: 16px;
-        color: #bdc3c7;
-        font-style: italic;
-      }
-
-      .contact-info {
-        margin-bottom: 40px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-
-      .contact-item i {
-        width: 20px;
-        margin-right: 15px;
-        color: #3498db;
-      }
-
-      .contact-item a {
-        color: #bdc3c7;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .contact-item a:hover {
-        color: #3498db;
-        text-decoration: underline;
-      }
-
-      .section-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #3498db;
-        display: flex;
-        align-items: center;
-      }
-
-      .section-title i {
-        margin-right: 10px;
-        color: #3498db;
-      }
-
-      .skills-list {
-        list-style: none;
-      }
-
-      .skills-list li {
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      .skills-list li:before {
-        content: "▸";
-        color: #3498db;
-        margin-right: 10px;
-      }
-
-      .main-content {
-        padding: 40px;
-        background: white;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .content-columns {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 40px;
-      }
-
-      @media (min-width: 1200px) {
-        .main-content {
-          padding: 40px 80px;
-        }
-      }
-
-      @media (min-width: 1400px) {
-        .main-content {
-          padding: 50px 100px;
-        }
-
-        .content-columns {
-          gap: 60px;
-        }
-      }
-
-      @media (min-width: 1600px) {
-        .content-columns {
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 40px;
-        }
-
-        .work-experience {
-          grid-column: 1 / 3;
-        }
-
-        .education {
-          grid-column: 3;
-        }
-      }
-
-      @media (max-width: 1300px) {
-        .content-columns {
-          grid-template-columns: 1fr;
-          gap: 30px;
-        }
-      }
-
-      .summary {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        padding: 30px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        border-left: 5px solid #3498db;
-      }
-
-      @media (min-width: 1600px) {
-        .summary {
-          padding: 35px 40px;
-          font-size: 16px;
-        }
-      }
-
-      .summary h2 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-      }
-
-      .summary h2 i {
-        margin-right: 10px;
-        color: #3498db;
-      }
-
-      .work-experience,
-      .education,
-      .early-career {
-        margin-bottom: 40px;
-      }
-
-      .work-experience h2,
-      .education h2,
-      .early-career h2 {
-        color: #2c3e50;
-        margin-bottom: 30px;
-        font-size: 24px;
-        display: flex;
-        align-items: center;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-      }
-
-      .work-experience h2 i,
-      .education h2 i,
-      .early-career h2 i {
-        margin-right: 10px;
-        color: #3498db;
-      }
-
-      .job,
-      .education-item {
-        margin-bottom: 30px;
-        padding: 25px;
-        background: #f8f9fa;
-        border-radius: 10px;
-        border-left: 4px solid #3498db;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .job:hover,
-      .education-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .job-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 15px;
-      }
-
-      .job-title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #2c3e50;
-      }
-
-      .company {
-        font-size: 16px;
-        color: #3498db;
-        margin-bottom: 5px;
-      }
-
-      .duration {
-        font-size: 14px;
-        color: #7f8c8d;
-        background: #ecf0f1;
-        padding: 5px 10px;
-        border-radius: 15px;
-      }
-
-      .job-description {
-        list-style: none;
-      }
-
-      .job-description li {
-        margin-bottom: 8px;
-        padding-left: 20px;
-        position: relative;
-      }
-
-      .job-description li:before {
-        content: "•";
-        color: #3498db;
-        position: absolute;
-        left: 0;
-      }
-
-      .certifications {
-        background: #2c3e50;
-        padding: 25px;
-        border-radius: 10px;
-        border-left: 4px solid #e74c3c;
-      }
-
-      .cert-item {
-        margin-bottom: 15px;
-        padding: 10px;
-        background: rgba(52, 73, 94, 0.8);
-        border-radius: 5px;
-        border-left: 3px solid #e74c3c;
-      }
-
-      .cert-title {
-        font-weight: bold;
-        color: #ecf0f1;
-      }
-
-      .cert-org {
-        color: #bdc3c7;
-        font-size: 14px;
-      }
-
-      .cert-title a {
-        color: #ecf0f1;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .cert-title a:hover {
-        color: #3498db;
-        text-decoration: underline;
-      }
-
-      @media (max-width: 1100px) {
-        .container {
-          grid-template-columns: 1fr;
-          margin: 10px;
-        }
-
-        .sidebar {
-          padding: 30px 20px;
-        }
-
-        .main-content {
-          padding: 30px;
-        }
-
-        .profile-img {
-          width: 200px;
-          height: 200px;
-          font-size: 60px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .sidebar {
-          padding: 20px;
-        }
-
-        .main-content {
-          padding: 20px;
-        }
-
-        .profile-img {
-          width: 150px;
-          height: 150px;
-          font-size: 48px;
-        }
-      }
-
-      /* PDF Button Styles */
-      .pdf-button-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
-
-      .pdf-button {
-        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 25px;
-        font-size: 14px;
-        font-weight: bold;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .pdf-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-      }
-
-      .pdf-button i {
-        font-size: 16px;
-      }
-
-      /* Print Styles for PDF */
-      @media print {
-        body {
-          background: white !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-
-        .pdf-button-container {
-          display: none !important;
-        }
-
-        .container {
-          max-width: none !important;
-          margin: 0 !important;
-          box-shadow: none !important;
-          border-radius: 0 !important;
-          display: grid !important;
-          grid-template-columns: 300px 1fr !important;
-          min-height: auto !important;
-        }
-
-        .sidebar {
-          background: #2c3e50 !important;
-          padding: 20px 15px !important;
-          -webkit-print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        .main-content {
-          padding: 20px !important;
-        }
-
-        .profile-img {
-          width: 200px !important;
-          height: 200px !important;
-          font-size: 60px !important;
-        }
-
-        .content-columns {
-          grid-template-columns: 1fr 1.6fr !important;
-          gap: 30px !important;
-        }
-
-        .work-experience {
-          grid-column: 1 !important;
-        }
-
-        .education {
-          grid-column: 2 !important;
-        }
-
-        .job,
-        .education-item {
-          margin-bottom: 15px !important;
-          padding: 15px !important;
-          break-inside: avoid !important;
-        }
-
-        .summary {
-          margin-bottom: 20px !important;
-          padding: 20px !important;
-        }
-
-        .certifications {
-          background: #2c3e50 !important;
-          -webkit-print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        .work-experience,
-        .education,
-        .early-career {
-          margin-bottom: 20px !important;
-        }
-
-        /* Ensure colors print correctly */
-        * {
-          -webkit-print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="pdf-button-container">
-      <button id="savePdfBtn" class="pdf-button">
-        <i class="fas fa-file-pdf"></i>
-        Save as PDF
-      </button>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nguyễn Tấn Quốc Bảo — Interview Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg2: #f1f5f9;
+      --bg3: #e9f0f8;
+      --card: #ffffff;
+      --card-hover: #f0f6ff;
+      --border: #cbd5e1;
+      --accent: #2563eb;
+      --accent2: #4f46e5;
+      --accent3: #0891b2;
+      --green: #059669;
+      --amber: #d97706;
+      --rose: #e11d48;
+      --purple: #7c3aed;
+      --text: #0f172a;
+      --text2: #475569;
+      --text3: #94a3b8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,250,252,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text);
+      background: var(--bg3);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 80px 2rem 2rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(37,99,235,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(79,70,229,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 10%, rgba(8,145,178,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37,99,235,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      color: var(--accent3);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      animation: fadeSlideDown 0.6s ease;
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+      animation: fadeSlideDown 0.7s ease;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5, #0891b2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-role {
+      color: var(--text2);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      animation: fadeSlideDown 0.8s ease;
+    }
+
+    .hero-role strong { color: var(--accent3); font-weight: 600; }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      animation: fadeSlideDown 0.9s ease;
+    }
+
+    .tag {
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid;
+    }
+
+    .tag-blue { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.25); color: #1d4ed8; }
+    .tag-purple { background: rgba(79,70,229,0.08); border-color: rgba(79,70,229,0.25); color: #4338ca; }
+    .tag-green { background: rgba(5,150,105,0.08); border-color: rgba(5,150,105,0.25); color: #065f46; }
+    .tag-amber { background: rgba(217,119,6,0.08); border-color: rgba(217,119,6,0.25); color: #92400e; }
+    .tag-cyan { background: rgba(8,145,178,0.08); border-color: rgba(8,145,178,0.25); color: #155e75; }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeSlideDown 1s ease;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-outline:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(59,130,246,0.07);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text3);
+      font-size: 0.7rem;
+      animation: bounce 2s infinite;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text2);
+      font-size: 0.925rem;
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ── TOPIC CARDS (accordion style) ── */
+    .topics-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .topic-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .topic-card:hover { border-color: rgba(59,130,246,0.4); }
+
+    .topic-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.4rem 1.6rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .topic-header:hover { background: rgba(37,99,235,0.03); }
+
+    .topic-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .icon-blue { background: rgba(59,130,246,0.15); }
+    .icon-purple { background: rgba(168,85,247,0.15); }
+    .icon-green { background: rgba(16,185,129,0.15); }
+    .icon-amber { background: rgba(245,158,11,0.15); }
+
+    .topic-title-wrap { flex: 1; }
+
+    .topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .topic-subtitle {
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    .chevron {
+      width: 20px;
+      height: 20px;
+      color: var(--text3);
+      transition: transform 0.3s;
+    }
+
+    .topic-card.open .chevron { transform: rotate(180deg); }
+
+    .topic-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .topic-card.open .topic-body { max-height: 1200px; }
+
+    .topic-inner {
+      padding: 0 1.6rem 1.6rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── REASON / RESULT ROWS ── */
+    .rr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 640px) { .rr-grid { grid-template-columns: 1fr; } }
+
+    .rr-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+    }
+
+    .rr-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .rr-label.reason { color: var(--amber); }
+    .rr-label.result { color: var(--green); }
+    .rr-label.purpose { color: var(--accent3); }
+    .rr-label.models { color: var(--purple); }
+
+    .rr-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .rr-list li {
+      font-size: 0.82rem;
+      color: var(--text2);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .rr-list li::before {
+      content: '›';
+      color: var(--text3);
+      margin-top: 0.05rem;
+      flex-shrink: 0;
+    }
+
+    /* bank pills inside result */
+    .bank-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .bank-acb { background: rgba(37,99,235,0.1); color: #1d4ed8; border: 1px solid rgba(37,99,235,0.2); }
+    .bank-ocb { background: rgba(5,150,105,0.1); color: #065f46; border: 1px solid rgba(5,150,105,0.2); }
+
+    /* ── MODEL TABLE ── */
+    .models-section {
+      margin-top: 1.25rem;
+    }
+
+    .bank-block {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem;
+      margin-top: 0.75rem;
+    }
+
+    .bank-block + .bank-block { margin-top: 0.75rem; }
+
+    .bank-block-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .bank-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .model-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .model-table th {
+      text-align: left;
+      color: var(--text3);
+      font-weight: 500;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .model-table td {
+      padding: 0.45rem 0.6rem;
+      color: var(--text2);
+      border-bottom: 1px solid rgba(203,213,225,0.6);
+    }
+
+    .model-table tr:last-child td { border-bottom: none; }
+
+    .model-table td:first-child {
+      color: var(--text);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .highlight-chip {
+      display: inline-block;
+      background: rgba(79,70,229,0.08);
+      color: #3730a3;
+      border: 1px solid rgba(79,70,229,0.25);
+      border-radius: 4px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    /* ── TIMELINE (experience) ── */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      position: relative;
+      padding: 0 0 2.5rem 1.5rem;
+      cursor: pointer;
+    }
+
+    .tl-item:last-child { padding-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -1.55rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.4);
+      transition: all 0.3s;
+    }
+
+    .tl-item:hover .tl-dot {
+      background: var(--accent3);
+      box-shadow: 0 0 0 3px rgba(34,211,238,0.3);
+    }
+
+    .tl-date {
+      font-size: 0.7rem;
+      color: var(--text3);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.975rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .tl-company {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .tl-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .tl-bullets li {
+      font-size: 0.815rem;
+      color: var(--text2);
+      line-height: 1.5;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tl-bullets li::before {
+      content: '▸';
+      color: var(--accent2);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(99,102,241,0.4);
+      transform: translateY(-2px);
+    }
+
+    .skill-card-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-chip {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 5px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
+
+    /* ── PHILOSOPHY CALLOUT ── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .philosophy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .philosophy-card:hover::before { opacity: 1; }
+    .philosophy-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-3px); }
+
+    .philosophy-card.purple::before { background: linear-gradient(135deg, rgba(168,85,247,0.08), transparent); }
+    .philosophy-card.purple:hover { border-color: rgba(168,85,247,0.4); }
+
+    .philosophy-card.green::before { background: linear-gradient(135deg, rgba(16,185,129,0.08), transparent); }
+    .philosophy-card.green:hover { border-color: rgba(16,185,129,0.4); }
+
+    .philosophy-card.amber::before { background: linear-gradient(135deg, rgba(217,119,6,0.08), transparent); }
+    .philosophy-card.amber:hover { border-color: rgba(217,119,6,0.4); }
+
+    .philosophy-card.teal::before { background: linear-gradient(135deg, rgba(8,145,178,0.08), transparent); }
+    .philosophy-card.teal:hover { border-color: rgba(8,145,178,0.4); }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 768px) { .career-grid { grid-template-columns: 1fr; } }
+
+    .philosophy-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      opacity: 0.06;
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+      line-height: 1;
+    }
+
+    .philosophy-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+    .philosophy-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .philosophy-text {
+      font-size: 0.8rem;
+      color: var(--text2);
+      line-height: 1.6;
+    }
+
+    .philosophy-subtitle {
+      font-size: 0.75rem;
+      color: var(--text3);
+      margin-bottom: 0.75rem;
+    }
+
+    .philosophy-detail {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── DATA CHECK DEMO ── */
+    .demo-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 900px) { .demo-layout { grid-template-columns: 1fr; } }
+
+    .demo-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .demo-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text2);
+    }
+
+    .demo-file-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(5,150,105,0.1);
+      color: #047857;
+      border: 1px solid rgba(5,150,105,0.18);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .excel-wrap { overflow-x: auto; }
+
+    .excel-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      min-width: 560px;
+    }
+
+    .excel-table th,
+    .excel-table td {
+      border: 1px solid #d7e0ea;
+      padding: 0.45rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .excel-table thead th {
+      background: #e8f5ec;
+      color: #166534;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .excel-table tbody tr:nth-child(even) td { background: #fafcff; }
+    .excel-table tbody tr:hover td { background: #f0f7ff; }
+
+    .type-chip {
+      display: inline-block;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: 'Space Grotesk', monospace;
+      white-space: nowrap;
+    }
+
+    .type-physical { background: #dbeafe; color: #1d4ed8; }
+    .type-semantic { background: #ede9fe; color: #6d28d9; }
+
+    .demo-flow {
+      padding: 1rem 1.1rem 1.1rem;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .demo-flow-step {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.8rem;
+      color: var(--text2);
+      line-height: 1.55;
+    }
+
+    .demo-flow-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(37,99,235,0.1);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .demo-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .demo-legend-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 0.75rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.72rem;
+      color: var(--text2);
+    }
+
+    .demo-legend-label {
+      font-weight: 700;
+      color: var(--text);
+      margin-right: 0.25rem;
+    }
+
+    .demo-check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .demo-check-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .demo-check-card:hover {
+      border-color: rgba(37,99,235,0.35);
+      transform: translateY(-2px);
+    }
+
+    .demo-check-head {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .demo-check-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      background: rgba(37,99,235,0.1);
+    }
+
+    .demo-check-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .demo-check-meta {
+      font-size: 0.68rem;
+      color: var(--text3);
+      margin-bottom: 0.55rem;
+    }
+
+    .demo-check-list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .demo-check-list li {
+      font-size: 0.76rem;
+      color: var(--text2);
+      line-height: 1.5;
+      padding-left: 0.9rem;
+      position: relative;
+    }
+
+    .demo-check-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .demo-example {
+      margin-top: 0.65rem;
+      padding: 0.55rem 0.65rem;
+      border-radius: 8px;
+      background: var(--bg3);
+      border: 1px dashed var(--border);
+      font-size: 0.72rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text3);
+      font-size: 0.78rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Intersection observer fade-in */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent3));
+      z-index: 99;
+      transition: width 0.1s;
+    }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Bảo NTQ · Interview 2025</div>
+  <ul class="nav-links">
+    <li><a href="#philosophy">Định hướng</a></li>
+    <li><a href="#experience">Kinh nghiệm</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#career">Sự nghiệp</a></li>
+    <li><a href="#demo">Demo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-name">
+      <span>Nguyễn Tấn Quốc Bảo</span>
+    </h1>
+    <p class="hero-role">
+      <strong>Data Scientist</strong> &amp; <strong>Certified Financial Risk Manager (FRM)</strong><br/>
+      <span style="font-size:0.875rem">Credit Risk Modelling · IRB · Automated Data Monitoring</span>
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="fade-up">
+    <p class="section-label">Định hướng nghề nghiệp</p>
+    <h2 class="section-title">Định hướng giải quyết vấn đề</h2>
+    <p class="section-desc">Ba chủ đề kỹ thuật trọng tâm trong quá trình làm việc tại ACB và OCB — từ tự động hoá, kiểm soát công cụ đến kiểm định mô hình.</p>
+  </div>
+  <div class="philosophy-grid">
+    <div class="philosophy-card fade-up">
+      <div class="philosophy-num">01</div>
+      <div class="philosophy-icon">🔄</div>
+      <div class="philosophy-title">Tự động hoá liên tục</div>
+      <p class="philosophy-subtitle">🤖 Tự động giám sát dữ liệu · Automated Data Monitoring — ACB &amp; OCB</p>
+      <p class="philosophy-text">Kiểm tra dữ liệu và mô hình không nên dừng lại ở bước go-live. Mọi quy trình kiểm tra cần được tự động hoá để chạy liên tục, phát hiện sớm trước khi vấn đề lan rộng.</p>
+      <div class="philosophy-detail">
+        <div class="rr-grid">
+          <div class="rr-box">
+            <div class="rr-label purpose">🎯 Mục đích</div>
+            <ul class="rr-list">
+              <li>Tránh việc chỉ kiểm tra bằng kinh nghiệm quan sát kết quả thủ công</li>
+              <li> Phát hiện vấn đề trước khi dữ liệu bị sai đi vào hệ thống phê duyệt/báo cáo SBV </li>
+              <li>Giảm phụ thuộc vào con người trong vòng lặp kiểm tra liên tục</li>
+            </ul>
+          </div>
+          <div class="rr-box">
+            <div class="rr-label reason">⚡ Nguyên nhân cần làm</div>
+            <ul class="rr-list">
+              <li>Người vận hành chính và người sử dụng kết quả thường ở bộ phận khác nhau</li>
+              <li>Hệ thống nguồn thay đổi (schema, logic ETL) mà không báo</li>
+              <li>Ý nghĩa kinh doanh của dữ liệu thay đổi theo thời gian</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rr-box" style="margin-top:0.75rem">
+          <div class="rr-label result">✅ Kết quả đạt được</div>
+          <ul class="rr-list">
+            <li><span class="bank-pill bank-ocb">OCB</span> Data Mart I9/IRB chạy định kỳ — cảnh báo/kiểm soát lỗi tự động khi cập nhật dữ liệu</li>
+            <li><span class="bank-pill bank-ocb">OCB</span> Đang triển khai thiết kế hệ thống tính vốn mới theo TT14/2025 dự kiến sẽ mang toàn bộ testcases hệ thống thành testcase tự động</li>
+            <li><span class="bank-pill bank-acb">ACB</span> Auto-reconcile đối chiếu vào hệ thống phê duyệt tự động (Approval System) — phát hiện lỗi trước khi mô hình chạy hằng ngày</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="container">
-      <div class="sidebar">
-        <div class="profile-section">
-          <div class="profile-img">
-            <img
-              src="./image.jpg"
-              alt="Bảo (Kevin) Nguyễn"
-              onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-user\'></i>';"
-            />
+    <div class="philosophy-card green fade-up">
+      <div class="philosophy-num">02</div>
+      <div class="philosophy-icon">🤝</div>
+      <div class="philosophy-title">Bàn giao được</div>
+      <p class="philosophy-subtitle">🛡️ Giám sát / kiểm tra việc sử dụng công cụ · Tool Usage Governance — bàn giao &amp; peer-review</p>
+      <p class="philosophy-text">Kỹ thuật xử lý và quy trình phải bàn giao được — không nên phụ thuộc vào một cá nhân cụ thể. Shared engine, peer review, và documentation là các yêu cầu bắt buộc.</p>
+      <div class="philosophy-detail">
+        <div class="rr-grid">
+          <div class="rr-box">
+            <div class="rr-label reason">⚡ Nguyên nhân</div>
+            <ul class="rr-list">
+              <li>Cấp trên &amp; đồng nghiệp cần kiểm tra chéo kết quả (peer review)</li>
+              <li>Xác nhận kết quả đầu ra có hợp lý hay không trước khi đưa vào production</li>
+              <li>Tránh tình trạng chỉ một người hiểu code — không bàn giao được</li>
+            </ul>
           </div>
-          <div class="name">Bảo (Kevin) Nguyễn</div>
-          <div class="title">
-            Data Scientist | Financial Risk Manager (FRM) Designation
-          </div>
-        </div>
-
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+84 907 560 348</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>bao.nguyentanquoc@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Ho Chi Minh City - Viet Nam</span>
-          </div>
-          <div class="contact-item">
-            <i class="fab fa-linkedin"></i>
-            <a
-              href="https://www.linkedin.com/in/bao-nguyen-tan-quoc-frm-50b629193/"
-              target="_blank"
-              style="color: #bdc3c7; text-decoration: none"
-              >LinkedIn</a
-            >
-          </div>
-          <div class="contact-item">
-            <i class="fab fa-github"></i>
-            <a
-              href="https://github.com/nguyentanquocbao"
-              target="_blank"
-              style="color: #bdc3c7; text-decoration: none"
-              >Github</a
-            >
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-certificate"></i>
-            <a
-              href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW"
-              target="_blank"
-              style="color: #bdc3c7; text-decoration: none"
-              >FRM Digital Badge - Certified 2021</a
-            >
-          </div>
-        </div>
-
-        <div class="section-title">
-          <i class="fas fa-code"></i>
-          Skills
-        </div>
-        <ul class="skills-list">
-          <li>Statistical Modeling & Data Analysis (Python, SQL, SAS)</li>
-          <li>Risk Management (SBV, BASEL, ECB standard)</li>
-          <li>Machine Learning (Scikit-learn)</li>
-          <li>Gradient boosting frameworks (Xgboost, LightGBM)</li>
-          <li>
-            Data Visualization & Reporting (Django, Dashboards hosted by Docker,
-            Power BI
-          </li>
-          <li>
-            Model Validation & Gorvenance (UAT, SAT, SIT, Smoke testing, and
-            Gorvenance frameworks)
-          </li>
-        </ul>
-
-        <div class="section-title" style="margin-top: 30px">
-          <i class="fas fa-language"></i>
-          Languages
-        </div>
-        <ul class="skills-list">
-          <li><strong>Vietnamese:</strong> First Language</li>
-          <li><strong>English:</strong> Proficient (TOEIC LR 965)</li>
-        </ul>
-
-        <div class="certifications" style="margin-top: 30px">
-          <div
-            class="section-title"
-            style="border-bottom: 2px solid #e74c3c; color: white"
-          >
-            <i class="fas fa-certificate"></i>
-            Certifications
-          </div>
-          <div class="cert-item">
-            <div class="cert-title">
-              <a
-                href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW"
-                target="_blank"
-                style="color: #ecf0f1; text-decoration: none"
-                >Financial Risk Manager (FRM)</a
-              >
-            </div>
-            <div class="cert-org">
-              Global Association of Risk Professionals (GARP)
-            </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-title">
-              <a
-                href="https://www.coursera.org/account/accomplishments/specialization/certificate/S7N55HXY8ZH7"
-                target="_blank"
-                style="color: #ecf0f1; text-decoration: none"
-                >Data Science Professional</a
-              >
-            </div>
-            <div class="cert-org">IBM</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-title">
-              <a
-                href="https://www.coursera.org/account/accomplishments/specialization/certificate/NNDZRH3SLSHA"
-                target="_blank"
-                style="color: #ecf0f1; text-decoration: none"
-                >SAS Programmer</a
-              >
-            </div>
-            <div class="cert-org">Coursera</div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-title">
-              <a
-                href="https://www.coursera.org/account/accomplishments/certificate/QRB7VTEW4G3V"
-                target="_blank"
-                style="color: #ecf0f1; text-decoration: none"
-                >Machine Learning</a
-              >
-            </div>
-            <div class="cert-org">Stanford University (Coursera)</div>
+          <div class="rr-box">
+            <div class="rr-label result">✅ Giải pháp triển khai</div>
+            <ul class="rr-list">
+              <li><span class="bank-pill bank-acb">ACB</span> Dùng <strong>DOCKER</strong> để xử lý — đóng gói code, đảm bảo môi trường nhất quán</li>
+              <li><span class="bank-pill bank-ocb">OCB</span> Cả team <strong>dùng VMware </strong> config riêng từng dự án — dễ onboard, dễ review, dễ bàn giao</li>
+            </ul>
           </div>
         </div>
       </div>
-
-      <div class="main-content">
-        <div class="summary">
-          <h2><i class="fas fa-user-circle"></i>Summary</h2>
-          <p>
-            Resourceful Data Scientist dedicated not only to delivering
-            impactful results but also to optimizing every available resource.
-            Driven by a strong willingness to learn and master new skills, I
-            continuously strive to enhance my expertise in risk management, AI
-            solutions, and advanced data analytics. Committed to leveraging
-            statistical modeling and innovative approaches to support sound
-            business decisions and foster sustainable organizational growth.
-          </p>
-        </div>
-
-        <div class="content-columns">
-          <div class="work-experience">
-            <h2><i class="fas fa-briefcase"></i>Work Experience</h2>
-
-            <div class="job">
-              <div class="job-header">
-                <div>
-                  <div class="company">
-                    Orient Commercial Bank (OCB) - Ho Chi Minh City
-                  </div>
-                  <div class="job-title">
-                    Strategic Risk Management Coordinator
-                  </div>
-                </div>
-                <div class="duration">2025/04 - now</div>
-              </div>
-              <ul class="job-description">
-                <li>
-                  Capital Adequacy Management & Reporting: create accurate and
-                  timely capital adequacy calculations, ensuring full alignment
-                  with State Bank of Vietnam (SBV) standards and international
-                  Basel frameworks.
-                </li>
-                <li>
-                  Risk Model Validation: Conduct comprehensive assessments and
-                  validations of diverse risk models, including ongoing
-                  validation and monitoring of credit scorecards (utilizing
-                  modern techniques like LightGBM) for auto credit and
-                  improvement.
-                </li>
-                <li>
-                  Strategic Risk Optimization: Collaborate closely with
-                  cross-functional teams to optimize risk management strategies,
-                  effectively balancing compliance with organizational growth
-                  objectives.
-                </li>
-              </ul>
-            </div>
-
-            <div class="job">
-              <div class="job-header">
-                <div>
-                  <div class="company">Outliers - Remote</div>
-                  <div class="job-title">AI Trainer (11/2024 - now)</div>
-                </div>
-                <div class="duration">11/2024 - now</div>
-              </div>
-              <ul class="job-description">
-                <li>
-                  Evaluated AI-generated responses for accuracy, relevance,
-                  creativity, and alignment with intended outcomes.
-                </li>
-                <li>
-                  Provided detailed feedback to refine model performance,
-                  ensuring higher quality outputs and alignment with real-world
-                  applications.
-                </li>
-                <li>
-                  Deliver expertised coding, strategic content that only
-                  available in work place environments for AI to improve.
-                </li>
-              </ul>
-            </div>
-
-            <div class="job">
-              <div class="job-header">
-                <div>
-                  <div class="company">
-                    Asia Commercial Bank (ACB) - Ho Chi Minh City
-                  </div>
-                  <div class="job-title">
-                    Quantitative Analyst (2021/09 - 2024/08)
-                  </div>
-                </div>
-                <div class="duration">2021/09 - 2024/08</div>
-              </div>
-              <ul class="job-description">
-                <li>
-                  Developed and implemented model applied for an auto-credit
-                  approval system under BASEL standards.
-                </li>
-                <li>
-                  Developed Basel FIRB models for Probability of Default (PD),
-                  Loss Given Default (LGD), and Exposure at Default (EAD).
-                </li>
-                <li>
-                  Conducted comprehensive risk reporting and data analysis using
-                  Power BI and Django dashboards.
-                </li>
-                <li>
-                  Gorvenance credits scoring system that able to auto-approve
-                  credit for SME customers
-                </li>
-                <li>
-                  Validate stress testing agorithm for portfolio risk which help
-                  bank to establish capital plan for operating activities.
-                </li>
-              </ul>
-            </div>
+    </div>
+    <div class="philosophy-card purple fade-up">
+      <div class="philosophy-num">03</div>
+      <div class="philosophy-icon">📐</div>
+      <div class="philosophy-title">Tiêu chuẩn rõ ràng</div>
+      <p class="philosophy-subtitle">🔬 Kiểm định mô hình (Model Validation) · A-score · B-score </p>
+      <p class="philosophy-text">Mọi lựa chọn trong kiểm định mô hình phải có tiêu chuẩn và phân tích sự phù hợp. Kiểm định mô hình không chỉ là tái lập và đối chiếu với benchmark, mà còn phải phân tích sự rõ ràng, trả lời được câu hỏi "tại sao" bên cạnh câu hỏi "như thế nào"</p>
+      <div class="philosophy-detail">
+        <div class="rr-grid">
+          <div class="rr-box">
+            <div class="rr-label models">🔎 Mô hình đã kiểm định</div>
+            <ul class="rr-list">
+              <li><strong>A-score </strong> Application Scorecard (thẻ tín dụng, tài chính vi mô)</li>
+              <li><strong>B-score</strong> Thẻ điểm nâng hạn mức cho khách hàng </li>
+            </ul>
           </div>
+          <div class="rr-box">
+            <div class="rr-label purpose">🎯 Nguyên tắc kiểm định</div>
+            <ul class="rr-list">
+              <li>Mọi lựa chọn tiêu chuẩn phải có <strong>lý thuyết</strong> và <strong>quy trình</strong> rõ ràng</li>
+              <li>Không chỉ dựa vào quy định tối thiểu khi chọn nhãn vỡ nợ (default definition)</li>
+              <li>Phải phân tích <strong>sự phù hợp</strong> của sản phẩm với dữ liệu thực tế</li>
+              <li>Kết quả kiểm định phải <em>có thể đưa ra các con số tường minh</em> với stakeholders</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rr-box" style="margin-top:0.75rem">
+          <div class="rr-label result">✅ Kết quả đạt được</div>
+          <p style="font-size:0.78rem;color:var(--text2);margin:0.4rem 0 0.5rem">Kiểm định hệ thống mô hình kinh doanh của <strong>LioBank</strong>:</p>
+          <ul class="rr-list">
+            <li>Làm rõ workflow của model A-score và B-score — trước đây mỗi model coi như một ốc đảo riêng biệt</li>
+            <li>Làm rõ định nghĩa đối tượng khách hàng — không để chấm hết bộ này đến bộ khác</li>
+            <li>Làm rõ rủi ro khi build-up model lên đối tượng mới — không để developer chỉ cần claim &ldquo;đây là tất cả có thể làm&rdquo; là được cho qua</li>
+            <li>Đưa phân tích <strong>vintage</strong> và <strong>roll-rate</strong> vào tiêu chuẩn lựa chọn nhãn</li>
+            <li>Tách biệt đánh giá mô hình bằng đánh giá danh mục, do mô hình cần thời gian quan sát và danh mục thì mang tính chất thời điểm. Rủi ro của mô hình bị che lấp bởi tốc độ tăng trưởng nóng, đến khi không tăng trưởng nhanh được nữa thì nợ xấu sẽ tăng nhanh chóng</li>
+            <li>Đưa NPL dự báo từ mô hình làm căn cứ chọn ngưỡng cut-off cho việc phê duyệt tín dụng</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <div class="education">
-            <h2><i class="fas fa-graduation-cap"></i>Education Background</h2>
+<!-- TECHNICAL NOTES -->
+<section id="technical">
+  <div class="fade-up">
+    <p class="section-label">Điểm nổi bật kỹ thuật</p>
+    <h2 class="section-title">Mô hình đã tham gia xây dựng</h2>
+    <p class="section-desc">PD · LGD · EAD trong khung IRB — kinh nghiệm triển khai tại ACB và OCB.</p>
+  </div>
 
-            <div class="education-item">
-              <div class="job-header">
-                <div>
-                  <div class="company">Yuan Ze University - Taiwan</div>
-                  <div class="job-title">
-                    Master of Science in Finance (June 2021)
-                  </div>
-                </div>
-                <div class="duration">June 2021</div>
+  <div class="topics-grid">
+
+    <!-- CARD 4 -->
+    <div class="topic-card fade-up" id="card4">
+      <div class="topic-header" onclick="toggleCard('card4')">
+        <div class="topic-icon icon-amber">📊</div>
+        <div class="topic-title-wrap">
+          <div class="topic-title">Mô hình đã tham gia xây dựng</div>
+          <div class="topic-subtitle">PD · LGD · EAD — IRB Framework (ACB &amp; OCB)</div>
+        </div>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="topic-body">
+        <div class="topic-inner">
+          <div class="models-section">
+
+            <!-- ACB -->
+            <div class="bank-block">
+              <div class="bank-block-header">
+                <span class="bank-pill bank-acb" style="font-size:0.85rem;padding:0.3rem 0.8rem">🏦 ACB</span>
+                <span class="bank-name">Asia Commercial Bank</span>
               </div>
-              <ul class="job-description">
-                <li>Earned a Master of Science in Finance with 4.0/4.0 GPA.</li>
-                <li>Awarded the Study Gold Medal for performance.</li>
-                <li>
-                  Beneficiary of a full scholarship for two academic years.
-                </li>
-                <li>
-                  Participated into empirical financial and audit researches
-                </li>
-              </ul>
-            </div>
-            <div class="education-item">
-              <div class="job-header">
-                <div>
-                  <div class="company">Can Tho University - Vietnam</div>
-                  <div class="job-title">
-                    Bachelor's degree in finance and Banking (June 2015)
-                  </div>
-                </div>
-                <div class="duration">June 2015</div>
-              </div>
-              <ul class="job-description">
-                <li>
-                  Obtained a bachelor's degree in finance and Banking, achieving
-                  a 3.65/4.0 GPA
-                </li>
-                <li>
-                  Awarded multiple scholarships throughout the academic year.
-                </li>
-              </ul>
+              <table class="model-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Phân khúc</th>
+                    <th>Chi tiết</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PD</td>
+                    <td>KH Doanh nghiệp</td>
+                    <td><span class="highlight-chip">5 phân khúc × 20 tháng backtest</span></td>
+                  </tr>
+                  <tr>
+                    <td>EAD</td>
+                    <td>KH Doanh nghiệp</td>
+                    <td>Exposure At Default — IRB component</td>
+                  </tr>
+                  <tr>
+                    <td>LGD</td>
+                    <td>KH Doanh nghiệp</td>
+                    <td>Loss Given Default — IRB component</td>
+                  </tr>
+                  <tr>
+                    <td>Sản phẩm lãi suất</td>
+                    <td>All</td>
+                    <td>Scorecard <span class="highlight-chip">1 – 100 điểm</span> dùng OptBinning</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
-            <h2 style="margin-top: 40px">
-              <i class="fas fa-seedling"></i>Early Career Experience
-            </h2>
-
-            <div class="job">
-              <div class="job-header">
-                <div>
-                  <div class="company">
-                    Viet Capital Commercial Joint Stock Bank - Can Tho
-                  </div>
-                  <div class="job-title">
-                    Credit Officer (First Professional Role)
-                  </div>
-                </div>
-                <div class="duration">2015/10 - 2019/07</div>
+            <!-- OCB -->
+            <div class="bank-block">
+              <div class="bank-block-header">
+                <span class="bank-pill bank-ocb" style="font-size:0.85rem;padding:0.3rem 0.8rem">🏦 OCB</span>
+                <span class="bank-name">Orient Commercial Bank</span>
               </div>
-              <ul class="job-description">
-                <li>
-                  Collected and analyzed financial data, resulting in 15%
-                  increase in approved loan amount each year while maintaining a
-                  1.50% default rate.
-                </li>
-                <li>
-                  Appraised properties offered as collateral and prepared
-                  comprehensive appraisal reports for loan approval processes.
-                </li>
-                <li>
-                  Verified loan utilization purposes and monitored clients'
-                  financial status to ensure compliance and risk mitigation.
-                </li>
-              </ul>
+              <table class="model-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>Phân khúc</th>
+                    <th>Chi tiết</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>EAD</td>
+                    <td>KH Cá nhân</td>
+                    <td>Exposure At Default</td>
+                  </tr>
+                  <tr>
+                    <td>LGD</td>
+                    <td>KH Cá nhân</td>
+                    <td>Loss Given Default</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      document
-        .getElementById("savePdfBtn")
-        .addEventListener("click", function () {
-          // Hide the PDF button temporarily
-          const pdfButton = document.querySelector(".pdf-button-container");
-          pdfButton.style.display = "none";
+  </div><!-- /topics-grid -->
+</section>
 
-          // Trigger print dialog
-          window.print();
+<div class="divider"></div>
 
-          // Show the PDF button again after print dialog
-          setTimeout(() => {
-            pdfButton.style.display = "block";
-          }, 100);
-        });
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="fade-up">
+    <p class="section-label">Kinh nghiệm làm việc</p>
+    <h2 class="section-title">Lịch sử công tác</h2>
+    <p class="section-desc">Hơn 9 năm trong lĩnh vực tài chính — từ thẩm định tín dụng đến xây dựng mô hình IRB và kiểm định độc lập.</p>
+  </div>
+  <div class="timeline fade-up">
 
-      // Optional: Add keyboard shortcut (Ctrl+P or Cmd+P)
-      document.addEventListener("keydown", function (e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === "p") {
-          e.preventDefault();
-          document.getElementById("savePdfBtn").click();
-        }
-      });
-    </script>
-  </body>
+    <div class="tl-item">
+      <div class="tl-dot" style="background: var(--green); box-shadow: 0 0 0 2px var(--green);"></div>
+      <div class="tl-date">2025/04 – nay</div>
+      <div class="tl-title">Strategic Risk Management Coordinator</div>
+      <div class="tl-company">Orient Commercial Bank (OCB) · Hồ Chí Minh</div>
+      <ul class="tl-bullets">
+        <li>Quản lý &amp; báo cáo an toàn vốn theo TT41/2016 và TT14/2025.</li>
+        <li>Kiểm định mô hình A-score, B-score (thẻ tín dụng &amp; khoản vay vi mô).</li>
+        <li>Xây dựng mô hình EAD, LGD phục vụ tính toán IRB.</li>
+        <li>Thiết kế data mart với 19 auto-check giám sát liên tục.</li>
+        <li>Quản lý máy ảo dùng chung cho đội nhóm — review &amp; bàn giao.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background: var(--text3); box-shadow: 0 0 0 2px var(--text3);"></div>
+      <div class="tl-date">2024/11 – nay</div>
+      <div class="tl-title">AI Trainer (Part-time)</div>
+      <div class="tl-company">Outliers · Remote</div>
+      <ul class="tl-bullets">
+        <li>Đánh giá &amp; cải thiện phản hồi AI trong lĩnh vực tài chính và lập trình.</li>
+        <li>Cung cấp kiến thức chuyên sâu từ thực tiễn để huấn luyện mô hình ngôn ngữ lớn.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">2021/09 – 2024/08</div>
+      <div class="tl-title">Quantitative Analyst</div>
+      <div class="tl-company">Asia Commercial Bank (ACB) · Hồ Chí Minh</div>
+      <ul class="tl-bullets">
+        <li>Xây dựng PD (5 phân khúc SME × 20 tháng backtest), LGD, EAD cho IRB.</li>
+        <li>Tích hợp auto-check vào Approval System — kiểm soát kết quả tính toán</li>
+        <li>Xây dựng mô hình lãi suất điểm (1–100) dùng OptBinning.</li>
+        <li>Triển khai máy ảo cá nhân chuẩn hoá môi trường &amp; bàn giao.</li>
+      </ul>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot" style="background: var(--text3); box-shadow: 0 0 0 2px var(--text3);"></div>
+      <div class="tl-date">2015/10 – 2019/07</div>
+      <div class="tl-title">Credit Officer</div>
+      <div class="tl-company">Viet Capital Bank · Cần Thơ</div>
+      <ul class="tl-bullets">
+        <li>Thẩm định tín dụng &amp; tài sản đảm bảo — duy trì NPL &lt; 1.5%.</li>
+        <li>Kiểm tra mục đích sử dụng vốn vay và giám sát tình hình tài chính khách hàng.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-up">
+    <p class="section-label">Năng lực kỹ thuật</p>
+    <h2 class="section-title">Skills &amp; Certifications</h2>
+    <p class="section-desc">Kết hợp nền tảng tài chính vững chắc với kỹ năng kỹ thuật dữ liệu hiện đại.</p>
+  </div>
+  <div class="skills-grid fade-up">
+    <div class="skill-card">
+      <div class="skill-card-title"><span>🐍</span> Programming</div>
+      <div class="skill-items">
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">SQL</span>
+        <span class="skill-chip">SAS</span>
+        <span class="skill-chip">pandas</span>
+        <span class="skill-chip">numpy</span>
+        <span class="skill-chip">scikit-learn</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title"><span>🤖</span> Machine Learning</div>
+      <div class="skill-items">
+        <span class="skill-chip">Logistic Regression</span>
+        <span class="skill-chip">XGBoost</span>
+        <span class="skill-chip">LightGBM</span>
+        <span class="skill-chip">OptBinning</span>
+        <span class="skill-chip">Decision Tree</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title"><span>🏦</span> Risk &amp; Finance</div>
+      <div class="skill-items">
+        <span class="skill-chip">IRB (PD/LGD/EAD)</span>
+        <span class="skill-chip">Basel III</span>
+        <span class="skill-chip">TT41 / TT14</span>
+        <span class="skill-chip">An toàn vốn</span>
+        <span class="skill-chip">FRM Certified</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title"><span>📊</span> Monitoring &amp; Ops</div>
+      <div class="skill-items">
+        <span class="skill-chip">Auto Data Check</span>
+        <span class="skill-chip">Model Monitoring</span>
+        <span class="skill-chip">Virtual Machine</span>
+        <span class="skill-chip">Dashboard (Python)</span>
+        <span class="skill-chip">Git</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div style="margin-top:2rem;" class="fade-up">
+    <p class="section-label" style="margin-bottom:0.75rem">Certifications</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+      <a href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW" target="_blank" class="btn-outline" style="font-size:0.78rem">🏅 FRM — GARP</a>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/S7N55HXY8ZH7" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Data Science Professional — IBM</a>
+      <a href="https://www.coursera.org/account/accomplishments/certificate/QRB7VTEW4G3V" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Machine Learning — Stanford</a>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/NNDZRH3SLSHA" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 SAS Programmer — Coursera</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAREER DIRECTION -->
+<section id="career">
+  <div class="fade-up">
+    <p class="section-label">Tầm nhìn</p>
+    <h2 class="section-title">Định hướng sự nghiệp</h2>
+    <p class="section-desc">Hai hướng đi tiếp theo — từ xây dựng đội ngũ đến nghiên cứu mô hình mới — nhằm hoàn thiện các định hướng xử lý vấn đề đã trình bày ở trên.</p>
+  </div>
+  <div class="career-grid">
+    <div class="philosophy-card amber fade-up">
+      <div class="philosophy-num">01</div>
+      <div class="philosophy-icon">👥</div>
+      <div class="philosophy-title">Xây dựng team</div>
+      <p class="philosophy-subtitle">Junior cùng chí hướng · Kết hợp kinh tế &amp; kỹ thuật</p>
+      <p class="philosophy-text">Build team với các bạn junior cùng chí hướng &amp; nỗ lực để hoàn thiện các định hướng xử lý vấn đề trên — tự động hoá, bàn giao được, tiêu chuẩn rõ ràng.</p>
+      <div class="philosophy-detail">
+        <div class="rr-box">
+          <div class="rr-label reason">⚡ Bài toán cần giải</div>
+          <ul class="rr-list">
+            <li>Sinh viên kinh tế thường <strong>không giỏi kỹ thuật</strong> — khó triển khai pipeline, monitoring, validation</li>
+            <li>Sinh viên DS hoặc DE thì <strong>không rành kinh tế</strong> &amp; bị gò bó — thiếu góc nhìn nghiệp vụ tín dụng, rủi ro</li>
+            <li>Một người khó cover đủ cả hai — cần team bổ sung cho nhau thay vì phụ thuộc cá nhân</li>
+          </ul>
+        </div>
+        <div class="rr-box" style="margin-top:0.75rem">
+          <div class="rr-label purpose">🎯 Hướng đi</div>
+          <ul class="rr-list">
+            <li>Tuyển chọn &amp; đào tạo junior có động lực, chia sẻ mindset làm việc có hệ thống</li>
+            <li>Phân vai rõ: nền tảng kinh tế ↔ kỹ năng data engineering / modelling</li>
+            <li>Peer review &amp; bàn giao ngay từ đầu — không để kiến thức nằm trong đầu một người</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="philosophy-card teal fade-up">
+      <div class="philosophy-num">02</div>
+      <div class="philosophy-icon">🧠</div>
+      <div class="philosophy-title">Relationship Deep Learning (RDL)</div>
+      <p class="philosophy-subtitle">Mô hình dạng mới · Thay thế tiềm năng cho XGBoost / LightGBM</p>
+      <p class="philosophy-text">Phát triển mô hình dạng mới <strong>RDL — Relationship Deep Learning</strong>: học trực tiếp trên cấu trúc quan hệ giữa các bảng, thay vì ép dữ liệu về bảng phẳng trước khi huấn luyện.</p>
+      <div class="philosophy-detail">
+        <div class="rr-box">
+          <div class="rr-label reason">⚡ Hạn chế hiện tại</div>
+          <ul class="rr-list">
+            <li><strong>XGBoost</strong> hay <strong>LightGBM</strong> vẫn phải chuyển dữ liệu về <strong>bảng phẳng</strong> (feature engineering, join, aggregate) trước khi sử dụng</li>
+            <li>Quá trình flatten có thể <strong>làm mất thông tin</strong> quan hệ giữa thực thể — ví dụ customer ↔ loan ↔ collateral</li>
+            <li>Feature engineering thủ công tốn effort và khó tái sử dụng khi schema thay đổi</li>
+          </ul>
+        </div>
+        <div class="rr-box" style="margin-top:0.75rem">
+          <div class="rr-label result">✅ Tiềm năng RDL</div>
+          <ul class="rr-list">
+            <li>Kỹ thuật đang được hoàn thiện — có thể <strong>thay thế</strong> cả pipeline flatten + booster truyền thống</li>
+            <li>Giữ nguyên cấu trúc quan hệ dữ liệu ngân hàng — phù hợp bài toán credit risk đa bảng</li>
+            <li>Giảm phụ thuộc vào feature engineering thủ công, tăng khả năng generalize khi dữ liệu nguồn thay đổi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DATA CHECK DEMO -->
+<section id="demo">
+  <div class="fade-up">
+    <p class="section-label">Demo · Tự động hoá</p>
+    <h2 class="section-title">Kiểm tra dữ liệu bằng Excel config</h2>
+    <p class="section-desc">Một file Excel đóng vai trò <strong>từ điển cấu hình</strong> — khai báo kiểu vật lý &amp; ngữ nghĩa cho từng cột, engine Python đọc config và chạy bộ kiểm tra tương ứng trên mọi bảng dữ liệu.</p>
+  </div>
+
+  <div class="demo-legend fade-up">
+    <div class="demo-legend-group">
+      <span class="demo-legend-label">Physical</span>
+      <span class="type-chip type-physical">str</span>
+      <span class="type-chip type-physical">int</span>
+      <span class="type-chip type-physical">float</span>
+      <span class="type-chip type-physical">date</span>
+    </div>
+    <div class="demo-legend-group">
+      <span class="demo-legend-label">Semantic</span>
+      <span class="type-chip type-semantic">unique_key</span>
+      <span class="type-chip type-semantic">category</span>
+      <span class="type-chip type-semantic">amount</span>
+      <span class="type-chip type-semantic">partition</span>
+      <span class="type-chip type-semantic">id</span>
+    </div>
+  </div>
+
+  <div class="demo-layout fade-up">
+    <div class="demo-panel">
+      <div class="demo-panel-header">
+        <span>📗 Config dictionary</span>
+        <span class="demo-file-pill">data_check_config.xlsx</span>
+      </div>
+      <div class="excel-wrap">
+        <table class="excel-table">
+          <thead>
+            <tr>
+              <th>table</th>
+              <th>column</th>
+              <th>physical</th>
+              <th>semantic</th>
+              <th>check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>loan_balance</td>
+              <td>report_date</td>
+              <td><span class="type-chip type-physical">date</span></td>
+              <td><span class="type-chip type-semantic">partition</span></td>
+              <td>eom, missing_month</td>
+            </tr>
+            <tr>
+              <td>loan_balance</td>
+              <td>loan_account_id</td>
+              <td><span class="type-chip type-physical">str</span></td>
+              <td><span class="type-chip type-semantic">unique_key</span></td>
+              <td>duplicate</td>
+            </tr>
+            <tr>
+              <td>loan_balance</td>
+              <td>branch_code</td>
+              <td><span class="type-chip type-physical">str</span></td>
+              <td><span class="type-chip type-semantic">category</span></td>
+              <td>new_value, ratio_drift</td>
+            </tr>
+            <tr>
+              <td>loan_balance</td>
+              <td>currency</td>
+              <td><span class="type-chip type-physical">str</span></td>
+              <td><span class="type-chip type-semantic">category</span></td>
+              <td>ratio_drift</td>
+            </tr>
+            <tr>
+              <td>loan_balance</td>
+              <td>outstanding_amt</td>
+              <td><span class="type-chip type-physical">float</span></td>
+              <td><span class="type-chip type-semantic">amount</span></td>
+              <td>sign, null_rate</td>
+            </tr>
+            <tr>
+              <td>loan_balance</td>
+              <td>customer_id</td>
+              <td><span class="type-chip type-physical">str</span></td>
+              <td><span class="type-chip type-semantic">id</span></td>
+              <td>single_category</td>
+            </tr>
+            <tr>
+              <td>customer_dim</td>
+              <td>customer_id</td>
+              <td><span class="type-chip type-physical">str</span></td>
+              <td><span class="type-chip type-semantic">id</span></td>
+              <td>address_consistency</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="demo-panel">
+      <div class="demo-panel-header">
+        <span>⚙️ Luồng chạy</span>
+        <span style="font-size:0.68rem;color:var(--text3)">config-driven</span>
+      </div>
+      <div class="demo-flow">
+        <div class="demo-flow-step">
+          <span class="demo-flow-num">1</span>
+          <span>Đọc <strong>data_check_config.xlsx</strong> — mỗi dòng = một cột cần kiểm tra.</span>
+        </div>
+        <div class="demo-flow-step">
+          <span class="demo-flow-num">2</span>
+          <span>Map <strong>physical</strong> để validate format (kiểu dữ liệu, null, sign…).</span>
+        </div>
+        <div class="demo-flow-step">
+          <span class="demo-flow-num">3</span>
+          <span>Map <strong>semantic</strong> để chọn logic nghiệp vụ (duplicate, drift, partition…).</span>
+        </div>
+        <div class="demo-flow-step">
+          <span class="demo-flow-num">4</span>
+          <span>Chạy theo lịch / sau ETL — báo cáo lỗi tập trung, không cần sửa code khi thêm cột mới.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-check-grid fade-up">
+    <div class="demo-check-card">
+      <div class="demo-check-head">
+        <div class="demo-check-icon">📅</div>
+        <div>
+          <div class="demo-check-title">date + partition</div>
+          <div class="demo-check-meta"><span class="type-chip type-physical">date</span> + <span class="type-chip type-semantic">partition</span></div>
+        </div>
+      </div>
+      <ul class="demo-check-list">
+        <li>Kiểm tra <strong>report_date</strong> có phải ngày cuối tháng (EOM) không</li>
+        <li>Phát hiện <strong>thiếu tháng</strong> trong chuỗi partition theo bảng</li>
+      </ul>
+      <div class="demo-example">Ví dụ: loan_balance có 2024-01, 2024-03 nhưng thiếu 2024-02 → cảnh báo gap partition.</div>
+    </div>
+
+    <div class="demo-check-card">
+      <div class="demo-check-head">
+        <div class="demo-check-icon">🔑</div>
+        <div>
+          <div class="demo-check-title">unique_key</div>
+          <div class="demo-check-meta"><span class="type-chip type-semantic">unique_key</span></div>
+        </div>
+      </div>
+      <ul class="demo-check-list">
+        <li>Kiểm tra <strong>duplicate</strong> trên khóa duy nhất của bảng</li>
+        <li>Mỗi partition chỉ được có một bản ghi / một khóa</li>
+      </ul>
+      <div class="demo-example">Ví dụ: <code>loan_account_id</code> xuất hiện 2 lần trong cùng tháng → fail check.</div>
+    </div>
+
+    <div class="demo-check-card">
+      <div class="demo-check-head">
+        <div class="demo-check-icon">📊</div>
+        <div>
+          <div class="demo-check-title">category</div>
+          <div class="demo-check-meta"><span class="type-chip type-semantic">category</span></div>
+        </div>
+      </div>
+      <ul class="demo-check-list">
+        <li>Theo thời gian: phát hiện <strong>giá trị mới</strong> (chi nhánh mới, quốc tịch mới…)</li>
+        <li><strong>Drift theo loại</strong>: tỷ lệ dòng USD tăng đột biến so với kỳ trước</li>
+      </ul>
+      <div class="demo-example">Ví dụ: tháng này xuất hiện <code>branch_code = 999</code> chưa từng có, hoặc % USD nhảy từ 12% → 38%.</div>
+    </div>
+
+    <div class="demo-check-card">
+      <div class="demo-check-head">
+        <div class="demo-check-icon">🧩</div>
+        <div>
+          <div class="demo-check-title">id</div>
+          <div class="demo-check-meta"><span class="type-chip type-semantic">id</span></div>
+        </div>
+      </div>
+      <ul class="demo-check-list">
+        <li>Cụm ID có gắn với <strong>category duy nhất</strong> không (1-n consistency)</li>
+        <li>Cross-table: cùng <code>customer_id</code> có nhiều địa chỉ / thuộc tính mâu thuẫn?</li>
+      </ul>
+      <div class="demo-example">Ví dụ: bảng tiền vay có <code>unique_key = loan_account</code> — nhiều tài khoản cùng <code>customer_id</code> → kiểm tra customer có 2 địa chỉ khác nhau không.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Nguyễn Tấn Quốc Bảo · <a href="mailto:bao.nguyentanquoc@gmail.com">bao.nguyentanquoc@gmail.com</a> · +84 877 043 077 · Hồ Chí Minh</p>
+  <p style="margin-top:0.3rem"><a href="https://www.linkedin.com/in/bao-nguyen-tan-quoc-frm-50b629193/" target="_blank">LinkedIn</a> · <a href="https://github.com/nguyentanquocbao" target="_blank">GitHub</a></p>
+</footer>
+
+<script>
+  // Toggle accordion cards
+  function toggleCard(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  // Open models card by default
+  document.getElementById('card4').classList.add('open');
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Intersection Observer for fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
 </html>
-
-
