@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nguyễn Tấn Quốc Bảo — Interview Presentation</title>
+  <title>Nguyễn Tấn Quốc Bảo - Interview Presentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -408,17 +408,49 @@
       font-size: 0.82rem;
       color: var(--text2);
       line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
+      display: block;
+      position: relative;
+      padding-left: 0.85rem;
     }
 
     .rr-list li::before {
       content: '›';
       color: var(--text3);
-      margin-top: 0.05rem;
-      flex-shrink: 0;
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
     }
+
+    .rr-list li .bank-pill {
+      margin-right: 0.3rem;
+      vertical-align: baseline;
+    }
+
+    .rr-list li strong,
+    .rr-list li em,
+    .rr-list li code,
+    .rr-list li .nw,
+    .demo-check-list li strong,
+    .demo-check-list li em,
+    .demo-check-list li code,
+    .demo-check-list li .nw,
+    .tl-bullets li strong,
+    .tl-bullets li em,
+    .tl-bullets li code,
+    .tl-bullets li .nw,
+    .demo-flow-step strong,
+    .demo-flow-step code,
+    .demo-flow-step .nw,
+    .philosophy-text strong,
+    .section-desc strong,
+    .demo-example code,
+    .demo-example .nw,
+    .philosophy-text .nw,
+    .section-desc .nw {
+      white-space: nowrap;
+    }
+
+    .nw { white-space: nowrap; }
 
     /* bank pills inside result */
     .bank-pill {
@@ -429,6 +461,8 @@
       border-radius: 5px;
       font-size: 0.7rem;
       font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .bank-acb { background: rgba(37,99,235,0.1); color: #1d4ed8; border: 1px solid rgba(37,99,235,0.2); }
@@ -677,11 +711,9 @@
 
     .career-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 1.25rem;
     }
-
-    @media (max-width: 768px) { .career-grid { grid-template-columns: 1fr; } }
 
     .philosophy-num {
       font-family: 'Space Grotesk', sans-serif;
@@ -1033,40 +1065,40 @@
   <div class="fade-up">
     <p class="section-label">Định hướng nghề nghiệp</p>
     <h2 class="section-title">Định hướng giải quyết vấn đề</h2>
-    <p class="section-desc">Ba chủ đề kỹ thuật trọng tâm trong quá trình làm việc tại ACB và OCB — từ tự động hoá, kiểm soát công cụ đến kiểm định mô hình.</p>
+    <p class="section-desc">Ba chủ đề kỹ thuật trọng tâm trong quá trình làm việc tại ACB và OCB - từ tự động hoá, kiểm soát công cụ đến kiểm định mô hình.</p>
   </div>
   <div class="philosophy-grid">
     <div class="philosophy-card fade-up">
       <div class="philosophy-num">01</div>
       <div class="philosophy-icon">🔄</div>
       <div class="philosophy-title">Tự động hoá liên tục</div>
-      <p class="philosophy-subtitle">🤖 Tự động giám sát dữ liệu · Automated Data Monitoring — ACB &amp; OCB</p>
+      <p class="philosophy-subtitle">🤖 Tự động giám sát dữ liệu · Automated Data Monitoring - ACB &amp; OCB</p>
       <p class="philosophy-text">Kiểm tra dữ liệu và mô hình không nên dừng lại ở bước go-live. Mọi quy trình kiểm tra cần được tự động hoá để chạy liên tục, phát hiện sớm trước khi vấn đề lan rộng.</p>
       <div class="philosophy-detail">
         <div class="rr-grid">
           <div class="rr-box">
             <div class="rr-label purpose">🎯 Mục đích</div>
             <ul class="rr-list">
-              <li>Tránh việc chỉ kiểm tra bằng kinh nghiệm quan sát kết quả thủ công</li>
-              <li> Phát hiện vấn đề trước khi dữ liệu bị sai đi vào hệ thống phê duyệt/báo cáo SBV </li>
-              <li>Giảm phụ thuộc vào con người trong vòng lặp kiểm tra liên tục</li>
+              <li>Tránh việc chỉ kiểm tra bằng <span class="nw">kinh&nbsp;nghiệm&nbsp;quan&nbsp;sát&nbsp;kết&nbsp;quả&nbsp;thủ&nbsp;công</span></li>
+              <li>Phát hiện vấn đề trước khi dữ liệu bị sai đi vào <span class="nw">hệ&nbsp;thống&nbsp;phê&nbsp;duyệt/báo&nbsp;cáo&nbsp;SBV</span></li>
+              <li>Giảm phụ thuộc vào con người trong <span class="nw">vòng&nbsp;lặp&nbsp;kiểm&nbsp;tra&nbsp;liên&nbsp;tục</span></li>
             </ul>
           </div>
           <div class="rr-box">
             <div class="rr-label reason">⚡ Nguyên nhân cần làm</div>
             <ul class="rr-list">
-              <li>Người vận hành chính và người sử dụng kết quả thường ở bộ phận khác nhau</li>
-              <li>Hệ thống nguồn thay đổi (schema, logic ETL) mà không báo</li>
-              <li>Ý nghĩa kinh doanh của dữ liệu thay đổi theo thời gian</li>
+              <li><span class="nw">Người&nbsp;vận&nbsp;hành&nbsp;chính</span> và <span class="nw">người&nbsp;sử&nbsp;dụng&nbsp;kết&nbsp;quả</span> thường ở bộ phận khác nhau</li>
+              <li><span class="nw">Hệ&nbsp;thống&nbsp;nguồn</span> thay đổi <span class="nw">(schema,&nbsp;logic&nbsp;ETL)</span> mà không báo</li>
+              <li><span class="nw">Ý&nbsp;nghĩa&nbsp;kinh&nbsp;doanh</span> của dữ liệu thay đổi theo thời gian</li>
             </ul>
           </div>
         </div>
         <div class="rr-box" style="margin-top:0.75rem">
           <div class="rr-label result">✅ Kết quả đạt được</div>
           <ul class="rr-list">
-            <li><span class="bank-pill bank-ocb">OCB</span> Data Mart I9/IRB chạy định kỳ — cảnh báo/kiểm soát lỗi tự động khi cập nhật dữ liệu</li>
-            <li><span class="bank-pill bank-ocb">OCB</span> Đang triển khai thiết kế hệ thống tính vốn mới theo TT14/2025 dự kiến sẽ mang toàn bộ testcases hệ thống thành testcase tự động</li>
-            <li><span class="bank-pill bank-acb">ACB</span> Auto-reconcile đối chiếu vào hệ thống phê duyệt tự động (Approval System) — phát hiện lỗi trước khi mô hình chạy hằng ngày</li>
+            <li><span class="bank-pill bank-ocb">OCB</span><span class="nw">Data&nbsp;Mart&nbsp;I9/IRB</span> chạy định kỳ - <span class="nw">cảnh&nbsp;báo/kiểm&nbsp;soát&nbsp;lỗi&nbsp;tự&nbsp;động</span> khi cập nhật dữ liệu</li>
+            <li><span class="bank-pill bank-ocb">OCB</span><span class="nw">Đang&nbsp;triển&nbsp;khai&nbsp;thiết&nbsp;kế&nbsp;hệ&nbsp;thống&nbsp;tính&nbsp;vốn&nbsp;mới</span> theo <span class="nw">TT14/2025</span> - mang toàn bộ <span class="nw">testcases&nbsp;hệ&nbsp;thống</span> thành <span class="nw">testcase&nbsp;tự&nbsp;động</span></li>
+            <li><span class="bank-pill bank-acb">ACB</span><span class="nw">Auto-reconcile</span> đối chiếu vào <span class="nw">hệ&nbsp;thống&nbsp;phê&nbsp;duyệt&nbsp;tự&nbsp;động&nbsp;(Approval&nbsp;System)</span> - phát hiện lỗi trước khi mô hình chạy hằng ngày</li>
           </ul>
         </div>
       </div>
@@ -1075,23 +1107,23 @@
       <div class="philosophy-num">02</div>
       <div class="philosophy-icon">🤝</div>
       <div class="philosophy-title">Bàn giao được</div>
-      <p class="philosophy-subtitle">🛡️ Giám sát / kiểm tra việc sử dụng công cụ · Tool Usage Governance — bàn giao &amp; peer-review</p>
-      <p class="philosophy-text">Kỹ thuật xử lý và quy trình phải bàn giao được — không nên phụ thuộc vào một cá nhân cụ thể. Shared engine, peer review, và documentation là các yêu cầu bắt buộc.</p>
+      <p class="philosophy-subtitle">🛡️ Giám sát / kiểm tra việc sử dụng công cụ · Tool Usage Governance - bàn giao &amp; peer-review</p>
+      <p class="philosophy-text">Kỹ thuật xử lý và quy trình phải bàn giao được - không nên phụ thuộc vào một cá nhân cụ thể. Shared engine, peer review, và documentation là các yêu cầu bắt buộc.</p>
       <div class="philosophy-detail">
         <div class="rr-grid">
           <div class="rr-box">
             <div class="rr-label reason">⚡ Nguyên nhân</div>
             <ul class="rr-list">
-              <li>Cấp trên &amp; đồng nghiệp cần kiểm tra chéo kết quả (peer review)</li>
-              <li>Xác nhận kết quả đầu ra có hợp lý hay không trước khi đưa vào production</li>
-              <li>Tránh tình trạng chỉ một người hiểu code — không bàn giao được</li>
+              <li><span class="nw">Cấp&nbsp;trên&nbsp;&amp;&nbsp;đồng&nbsp;nghiệp&nbsp;cần&nbsp;kiểm&nbsp;tra&nbsp;chéo&nbsp;kết&nbsp;quả</span> <span class="nw">(peer&nbsp;review)</span></li>
+              <li><span class="nw">Xác&nbsp;nhận&nbsp;kết&nbsp;quả&nbsp;đầu&nbsp;ra</span> có hợp lý hay không trước khi đưa vào <span class="nw">production</span></li>
+              <li><span class="nw">Tránh&nbsp;tình&nbsp;trạng&nbsp;chỉ&nbsp;một&nbsp;người&nbsp;hiểu&nbsp;code</span> - <span class="nw">không&nbsp;bàn&nbsp;giao&nbsp;được</span></li>
             </ul>
           </div>
           <div class="rr-box">
             <div class="rr-label result">✅ Giải pháp triển khai</div>
             <ul class="rr-list">
-              <li><span class="bank-pill bank-acb">ACB</span> Dùng <strong>DOCKER</strong> để xử lý — đóng gói code, đảm bảo môi trường nhất quán</li>
-              <li><span class="bank-pill bank-ocb">OCB</span> Cả team <strong>dùng VMware </strong> config riêng từng dự án — dễ onboard, dễ review, dễ bàn giao</li>
+              <li><span class="bank-pill bank-acb">ACB</span><span class="nw">Dùng&nbsp;<strong>DOCKER</strong>&nbsp;để&nbsp;xử&nbsp;lý</span> - <span class="nw">đóng&nbsp;gói&nbsp;code,&nbsp;đảm&nbsp;bảo&nbsp;môi&nbsp;trường&nbsp;nhất&nbsp;quán</span></li>
+              <li><span class="bank-pill bank-ocb">OCB</span><span class="nw">Cả&nbsp;team&nbsp;dùng&nbsp;VMware</span> - <span class="nw">config&nbsp;riêng&nbsp;từng&nbsp;dự&nbsp;án</span> - <span class="nw">dễ&nbsp;onboard,&nbsp;dễ&nbsp;review,&nbsp;dễ&nbsp;bàn&nbsp;giao</span></li>
             </ul>
           </div>
         </div>
@@ -1102,23 +1134,23 @@
       <div class="philosophy-icon">📐</div>
       <div class="philosophy-title">Tiêu chuẩn rõ ràng</div>
       <p class="philosophy-subtitle">🔬 Kiểm định mô hình (Model Validation) · A-score · B-score </p>
-      <p class="philosophy-text">Mọi lựa chọn trong kiểm định mô hình phải có tiêu chuẩn và phân tích sự phù hợp. Kiểm định mô hình không chỉ là tái lập và đối chiếu với benchmark, mà còn phải phân tích sự rõ ràng, trả lời được câu hỏi "tại sao" bên cạnh câu hỏi "như thế nào"</p>
+      <p class="philosophy-text">Mọi lựa chọn trong kiểm định mô hình phải có tiêu chuẩn và phân tích sự phù hợp. Kiểm định mô hình không chỉ là tái lập và đối chiếu với benchmark, mà còn phải phân tích sự rõ ràng, trả lời được câu hỏi "tại sao" bên cạnh câu hỏi "như thế nào". </p>
       <div class="philosophy-detail">
         <div class="rr-grid">
           <div class="rr-box">
             <div class="rr-label models">🔎 Mô hình đã kiểm định</div>
             <ul class="rr-list">
-              <li><strong>A-score </strong> Application Scorecard (thẻ tín dụng, tài chính vi mô)</li>
-              <li><strong>B-score</strong> Thẻ điểm nâng hạn mức cho khách hàng </li>
+              <li><strong>A-score</strong> <span class="nw">luồng có/không có CIC/PCB </span> <span class="nw">(thẻ&nbsp;tín&nbsp;dụng,&nbsp;tài&nbsp;chính&nbsp;vi&nbsp;mô)</span></li>
+              <li><strong>B-score</strong> Nâng hạn mức cho khách hàng chính quy và trial có thử thách</li>
             </ul>
           </div>
           <div class="rr-box">
             <div class="rr-label purpose">🎯 Nguyên tắc kiểm định</div>
             <ul class="rr-list">
-              <li>Mọi lựa chọn tiêu chuẩn phải có <strong>lý thuyết</strong> và <strong>quy trình</strong> rõ ràng</li>
-              <li>Không chỉ dựa vào quy định tối thiểu khi chọn nhãn vỡ nợ (default definition)</li>
-              <li>Phải phân tích <strong>sự phù hợp</strong> của sản phẩm với dữ liệu thực tế</li>
-              <li>Kết quả kiểm định phải <em>có thể đưa ra các con số tường minh</em> với stakeholders</li>
+              <li>Mọi lựa chọn tiêu chuẩn phải có <strong>lý&nbsp;thuyết</strong> và <strong>quy&nbsp;trình</strong> rõ ràng</li>
+              <li><span class="nw">Không&nbsp;chỉ&nbsp;dựa&nbsp;vào&nbsp;quy&nbsp;định&nbsp;tối&nbsp;thiểu</span> khi chọn <span class="nw">nhãn&nbsp;vỡ&nbsp;nợ</span> <span class="nw">(default&nbsp;definition)</span></li>
+              <li>Phải phân tích <strong>sự&nbsp;phù&nbsp;hợp</strong> của sản phẩm với <span class="nw">dữ&nbsp;liệu&nbsp;thực&nbsp;tế</span></li>
+              <li>Kết quả kiểm định phải <em>có&nbsp;thể&nbsp;đưa&nbsp;ra&nbsp;các&nbsp;con&nbsp;số&nbsp;tường&nbsp;minh</em> với <span class="nw">stakeholders</span></li>
             </ul>
           </div>
         </div>
@@ -1126,12 +1158,13 @@
           <div class="rr-label result">✅ Kết quả đạt được</div>
           <p style="font-size:0.78rem;color:var(--text2);margin:0.4rem 0 0.5rem">Kiểm định hệ thống mô hình kinh doanh của <strong>LioBank</strong>:</p>
           <ul class="rr-list">
-            <li>Làm rõ workflow của model A-score và B-score — trước đây mỗi model coi như một ốc đảo riêng biệt</li>
-            <li>Làm rõ định nghĩa đối tượng khách hàng — không để chấm hết bộ này đến bộ khác</li>
-            <li>Làm rõ rủi ro khi build-up model lên đối tượng mới — không để developer chỉ cần claim &ldquo;đây là tất cả có thể làm&rdquo; là được cho qua</li>
-            <li>Đưa phân tích <strong>vintage</strong> và <strong>roll-rate</strong> vào tiêu chuẩn lựa chọn nhãn</li>
-            <li>Tách biệt đánh giá mô hình bằng đánh giá danh mục, do mô hình cần thời gian quan sát và danh mục thì mang tính chất thời điểm. Rủi ro của mô hình bị che lấp bởi tốc độ tăng trưởng nóng, đến khi không tăng trưởng nhanh được nữa thì nợ xấu sẽ tăng nhanh chóng</li>
-            <li>Đưa NPL dự báo từ mô hình làm căn cứ chọn ngưỡng cut-off cho việc phê duyệt tín dụng</li>
+            <li>Làm rõ workflow của model <span class="nw">A-score&nbsp;và&nbsp;B-score</span> - trước đây mỗi model coi như một <span class="nw">ốc&nbsp;đảo&nbsp;riêng&nbsp;biệt</span></li>
+            <li>Làm rõ <span class="nw">định&nbsp;nghĩa&nbsp;đối&nbsp;tượng&nbsp;khách&nbsp;hàng</span> - <span class="nw">không&nbsp;để&nbsp;chấm&nbsp;hết&nbsp;bộ&nbsp;này&nbsp;đến&nbsp;bộ&nbsp;khác</span></li>
+            <li>Làm rõ rủi ro khi <span class="nw">build-up&nbsp;model</span> lên đối tượng mới - <span class="nw">không&nbsp;để&nbsp;developer&nbsp;chỉ&nbsp;cần&nbsp;claim&nbsp;&ldquo;đây&nbsp;là&nbsp;tất&nbsp;cả&nbsp;có&nbsp;thể&nbsp;làm&rdquo;&nbsp;là&nbsp;được&nbsp;cho&nbsp;qua</span></li>
+            <li>Đưa phân tích <strong>vintage</strong> và <strong>roll-rate</strong> vào <span class="nw">tiêu&nbsp;chuẩn&nbsp;lựa&nbsp;chọn&nbsp;nhãn</span></li>
+            <li>Tách biệt <span class="nw">đánh&nbsp;giá&nbsp;mô&nbsp;hình</span> và <span class="nw">đánh&nbsp;giá&nbsp;danh&nbsp;mục</span> - mô hình cần thời gian quan sát, danh mục mang <span class="nw">tính&nbsp;chất&nbsp;thời&nbsp;điểm</span>
+            vì Rủi ro mô hình bị che lấp bởi <span class="nw">tốc&nbsp;độ&nbsp;tăng&nbsp;trưởng&nbsp;nóng</span> - khi không tăng trưởng nhanh được nữa, <span class="nw">nợ&nbsp;xấu&nbsp;sẽ&nbsp;tăng&nbsp;nhanh&nbsp;chóng</span></li>
+            <li>Đưa <span class="nw">NPL&nbsp;dự&nbsp;báo</span> từ mô hình làm căn cứ chọn ngưỡng <span class="nw">cut-off</span> cho việc <span class="nw">phê&nbsp;duyệt&nbsp;tín&nbsp;dụng</span></li>
           </ul>
         </div>
       </div>
@@ -1144,7 +1177,7 @@
   <div class="fade-up">
     <p class="section-label">Điểm nổi bật kỹ thuật</p>
     <h2 class="section-title">Mô hình đã tham gia xây dựng</h2>
-    <p class="section-desc">PD · LGD · EAD trong khung IRB — kinh nghiệm triển khai tại ACB và OCB.</p>
+    <p class="section-desc">PD · LGD · EAD trong khung IRB - kinh nghiệm triển khai tại ACB và OCB.</p>
   </div>
 
   <div class="topics-grid">
@@ -1155,7 +1188,7 @@
         <div class="topic-icon icon-amber">📊</div>
         <div class="topic-title-wrap">
           <div class="topic-title">Mô hình đã tham gia xây dựng</div>
-          <div class="topic-subtitle">PD · LGD · EAD — IRB Framework (ACB &amp; OCB)</div>
+          <div class="topic-subtitle">PD · LGD · EAD - IRB Framework (ACB &amp; OCB)</div>
         </div>
         <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </div>
@@ -1186,12 +1219,12 @@
                   <tr>
                     <td>EAD</td>
                     <td>KH Doanh nghiệp</td>
-                    <td>Exposure At Default — IRB component</td>
+                    <td>Exposure At Default - IRB component</td>
                   </tr>
                   <tr>
                     <td>LGD</td>
                     <td>KH Doanh nghiệp</td>
-                    <td>Loss Given Default — IRB component</td>
+                    <td>Loss Given Default - IRB component</td>
                   </tr>
                   <tr>
                     <td>Sản phẩm lãi suất</td>
@@ -1246,7 +1279,7 @@
   <div class="fade-up">
     <p class="section-label">Kinh nghiệm làm việc</p>
     <h2 class="section-title">Lịch sử công tác</h2>
-    <p class="section-desc">Hơn 9 năm trong lĩnh vực tài chính — từ thẩm định tín dụng đến xây dựng mô hình IRB và kiểm định độc lập.</p>
+    <p class="section-desc">Hơn 9 năm trong lĩnh vực tài chính - từ thẩm định tín dụng đến xây dựng mô hình IRB và kiểm định độc lập.</p>
   </div>
   <div class="timeline fade-up">
 
@@ -1256,11 +1289,11 @@
       <div class="tl-title">Strategic Risk Management Coordinator</div>
       <div class="tl-company">Orient Commercial Bank (OCB) · Hồ Chí Minh</div>
       <ul class="tl-bullets">
-        <li>Quản lý &amp; báo cáo an toàn vốn theo TT41/2016 và TT14/2025.</li>
-        <li>Kiểm định mô hình A-score, B-score (thẻ tín dụng &amp; khoản vay vi mô).</li>
-        <li>Xây dựng mô hình EAD, LGD phục vụ tính toán IRB.</li>
-        <li>Thiết kế data mart với 19 auto-check giám sát liên tục.</li>
-        <li>Quản lý máy ảo dùng chung cho đội nhóm — review &amp; bàn giao.</li>
+        <li>Quản lý &amp; báo cáo <span class="nw">an toàn vốn</span> theo <span class="nw">TT41/2016</span> và <span class="nw">TT14/2025</span>.</li>
+        <li>Kiểm định mô hình <span class="nw">A-score, B-score</span> <span class="nw">(thẻ tín dụng &amp; khoản vay vi mô)</span>.</li>
+        <li>Xây dựng mô hình <span class="nw">EAD, LGD</span> phục vụ tính toán <span class="nw">IRB</span>.</li>
+        <li>Thiết kế <span class="nw">data mart</span> với <span class="nw">19 auto-check</span> giám sát liên tục.</li>
+        <li>Quản lý máy ảo dùng chung cho đội nhóm - <span class="nw">review &amp; bàn giao</span>.</li>
       </ul>
     </div>
 
@@ -1270,8 +1303,8 @@
       <div class="tl-title">AI Trainer (Part-time)</div>
       <div class="tl-company">Outliers · Remote</div>
       <ul class="tl-bullets">
-        <li>Đánh giá &amp; cải thiện phản hồi AI trong lĩnh vực tài chính và lập trình.</li>
-        <li>Cung cấp kiến thức chuyên sâu từ thực tiễn để huấn luyện mô hình ngôn ngữ lớn.</li>
+        <li>Đánh giá &amp; cải thiện phản hồi AI trong lĩnh vực <span class="nw">tài chính và lập trình</span>.</li>
+        <li>Cung cấp kiến thức chuyên sâu từ thực tiễn để huấn luyện <span class="nw">mô hình ngôn ngữ lớn</span>.</li>
       </ul>
     </div>
 
@@ -1281,10 +1314,10 @@
       <div class="tl-title">Quantitative Analyst</div>
       <div class="tl-company">Asia Commercial Bank (ACB) · Hồ Chí Minh</div>
       <ul class="tl-bullets">
-        <li>Xây dựng PD (5 phân khúc SME × 20 tháng backtest), LGD, EAD cho IRB.</li>
-        <li>Tích hợp auto-check vào Approval System — kiểm soát kết quả tính toán</li>
-        <li>Xây dựng mô hình lãi suất điểm (1–100) dùng OptBinning.</li>
-        <li>Triển khai máy ảo cá nhân chuẩn hoá môi trường &amp; bàn giao.</li>
+        <li>Xây dựng <span class="nw">PD (5 phân khúc SME × 20 tháng backtest)</span>, <span class="nw">LGD, EAD</span> cho <span class="nw">IRB</span>.</li>
+        <li>Tích hợp <span class="nw">auto-check</span> vào <span class="nw">Approval System</span> - kiểm soát kết quả tính toán</li>
+        <li>Xây dựng <span class="nw">mô hình lãi suất điểm (1–100)</span> dùng <span class="nw">OptBinning</span>.</li>
+        <li>Triển khai máy ảo cá nhân <span class="nw">chuẩn hoá môi trường &amp; bàn giao</span>.</li>
       </ul>
     </div>
 
@@ -1294,8 +1327,8 @@
       <div class="tl-title">Credit Officer</div>
       <div class="tl-company">Viet Capital Bank · Cần Thơ</div>
       <ul class="tl-bullets">
-        <li>Thẩm định tín dụng &amp; tài sản đảm bảo — duy trì NPL &lt; 1.5%.</li>
-        <li>Kiểm tra mục đích sử dụng vốn vay và giám sát tình hình tài chính khách hàng.</li>
+        <li>Thẩm định tín dụng &amp; <span class="nw">tài sản đảm bảo</span> - duy trì <span class="nw">NPL &lt; 1.5%</span>.</li>
+        <li>Kiểm tra <span class="nw">mục đích sử dụng vốn vay</span> và giám sát <span class="nw">tình hình tài chính khách hàng</span>.</li>
       </ul>
     </div>
 
@@ -1359,10 +1392,10 @@
   <div style="margin-top:2rem;" class="fade-up">
     <p class="section-label" style="margin-bottom:0.75rem">Certifications</p>
     <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-      <a href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW" target="_blank" class="btn-outline" style="font-size:0.78rem">🏅 FRM — GARP</a>
-      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/S7N55HXY8ZH7" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Data Science Professional — IBM</a>
-      <a href="https://www.coursera.org/account/accomplishments/certificate/QRB7VTEW4G3V" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Machine Learning — Stanford</a>
-      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/NNDZRH3SLSHA" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 SAS Programmer — Coursera</a>
+      <a href="https://my.garp.org/DigitalBadgeFRM?id=0031W00002eKEwUQAW" target="_blank" class="btn-outline" style="font-size:0.78rem">🏅 FRM - GARP</a>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/S7N55HXY8ZH7" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Data Science Professional - IBM</a>
+      <a href="https://www.coursera.org/account/accomplishments/certificate/QRB7VTEW4G3V" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 Machine Learning - Stanford</a>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/NNDZRH3SLSHA" target="_blank" class="btn-outline" style="font-size:0.78rem">📜 SAS Programmer - Coursera</a>
     </div>
   </div>
 </section>
@@ -1374,7 +1407,7 @@
   <div class="fade-up">
     <p class="section-label">Tầm nhìn</p>
     <h2 class="section-title">Định hướng sự nghiệp</h2>
-    <p class="section-desc">Hai hướng đi tiếp theo — từ xây dựng đội ngũ đến nghiên cứu mô hình mới — nhằm hoàn thiện các định hướng xử lý vấn đề đã trình bày ở trên.</p>
+    <p class="section-desc">Hai hướng đi tiếp theo - từ xây dựng đội ngũ đến nghiên cứu mô hình mới - nhằm hoàn thiện các định hướng xử lý vấn đề đã trình bày ở trên.</p>
   </div>
   <div class="career-grid">
     <div class="philosophy-card amber fade-up">
@@ -1382,22 +1415,22 @@
       <div class="philosophy-icon">👥</div>
       <div class="philosophy-title">Xây dựng team</div>
       <p class="philosophy-subtitle">Junior cùng chí hướng · Kết hợp kinh tế &amp; kỹ thuật</p>
-      <p class="philosophy-text">Build team với các bạn junior cùng chí hướng &amp; nỗ lực để hoàn thiện các định hướng xử lý vấn đề trên — tự động hoá, bàn giao được, tiêu chuẩn rõ ràng.</p>
+      <p class="philosophy-text">Build team với các bạn junior cùng chí hướng &amp; nỗ lực để hoàn thiện các định hướng xử lý vấn đề trên - tự động hoá, bàn giao được, tiêu chuẩn rõ ràng.</p>
       <div class="philosophy-detail">
         <div class="rr-box">
           <div class="rr-label reason">⚡ Bài toán cần giải</div>
           <ul class="rr-list">
-            <li>Sinh viên kinh tế thường <strong>không giỏi kỹ thuật</strong> — khó triển khai pipeline, monitoring, validation</li>
-            <li>Sinh viên DS hoặc DE thì <strong>không rành kinh tế</strong> &amp; bị gò bó — thiếu góc nhìn nghiệp vụ tín dụng, rủi ro</li>
-            <li>Một người khó cover đủ cả hai — cần team bổ sung cho nhau thay vì phụ thuộc cá nhân</li>
+            <li><span class="nw">Sinh&nbsp;viên&nbsp;kinh&nbsp;tế&nbsp;thường&nbsp;không&nbsp;giỏi&nbsp;kỹ&nbsp;thuật</span> - <span class="nw">khó&nbsp;triển&nbsp;khai&nbsp;pipeline,&nbsp;monitoring,&nbsp;validation</span></li>
+            <li><span class="nw">Sinh&nbsp;viên&nbsp;DS&nbsp;hoặc&nbsp;DE</span> thì <span class="nw">không&nbsp;rành&nbsp;kinh&nbsp;tế</span> &amp; bị gò bó - thiếu <span class="nw">góc&nbsp;nhìn&nbsp;nghiệp&nbsp;vụ&nbsp;tín&nbsp;dụng,&nbsp;rủi&nbsp;ro</span></li>
+            <li><span class="nw">Một&nbsp;người&nbsp;khó&nbsp;cover&nbsp;đủ&nbsp;cả&nbsp;hai</span> - cần team bổ sung cho nhau thay vì <span class="nw">phụ&nbsp;thuộc&nbsp;cá&nbsp;nhân</span></li>
           </ul>
         </div>
         <div class="rr-box" style="margin-top:0.75rem">
           <div class="rr-label purpose">🎯 Hướng đi</div>
           <ul class="rr-list">
-            <li>Tuyển chọn &amp; đào tạo junior có động lực, chia sẻ mindset làm việc có hệ thống</li>
-            <li>Phân vai rõ: nền tảng kinh tế ↔ kỹ năng data engineering / modelling</li>
-            <li>Peer review &amp; bàn giao ngay từ đầu — không để kiến thức nằm trong đầu một người</li>
+            <li><span class="nw">Tuyển&nbsp;chọn&nbsp;&amp;&nbsp;đào&nbsp;tạo&nbsp;junior</span> có động lực, chia sẻ <span class="nw">mindset&nbsp;làm&nbsp;việc&nbsp;có&nbsp;hệ&nbsp;thống</span></li>
+            <li>Phân vai rõ: <span class="nw">nền&nbsp;tảng&nbsp;kinh&nbsp;tế</span> ↔ <span class="nw">kỹ&nbsp;năng&nbsp;data&nbsp;engineering&nbsp;/&nbsp;modelling</span></li>
+            <li><span class="nw">Peer&nbsp;review&nbsp;&amp;&nbsp;bàn&nbsp;giao&nbsp;ngay&nbsp;từ&nbsp;đầu</span> - <span class="nw">không&nbsp;để&nbsp;kiến&nbsp;thức&nbsp;nằm&nbsp;trong&nbsp;đầu&nbsp;một&nbsp;người</span></li>
           </ul>
         </div>
       </div>
@@ -1407,22 +1440,22 @@
       <div class="philosophy-icon">🧠</div>
       <div class="philosophy-title">Relationship Deep Learning (RDL)</div>
       <p class="philosophy-subtitle">Mô hình dạng mới · Thay thế tiềm năng cho XGBoost / LightGBM</p>
-      <p class="philosophy-text">Phát triển mô hình dạng mới <strong>RDL — Relationship Deep Learning</strong>: học trực tiếp trên cấu trúc quan hệ giữa các bảng, thay vì ép dữ liệu về bảng phẳng trước khi huấn luyện.</p>
+      <p class="philosophy-text">Phát triển mô hình dạng mới <strong>RDL - Relationship Deep Learning</strong>: học trực tiếp trên <span class="nw">cấu trúc quan hệ giữa các bảng</span>, thay vì ép dữ liệu về <span class="nw">bảng phẳng</span> trước khi huấn luyện.</p>
       <div class="philosophy-detail">
         <div class="rr-box">
           <div class="rr-label reason">⚡ Hạn chế hiện tại</div>
           <ul class="rr-list">
-            <li><strong>XGBoost</strong> hay <strong>LightGBM</strong> vẫn phải chuyển dữ liệu về <strong>bảng phẳng</strong> (feature engineering, join, aggregate) trước khi sử dụng</li>
-            <li>Quá trình flatten có thể <strong>làm mất thông tin</strong> quan hệ giữa thực thể — ví dụ customer ↔ loan ↔ collateral</li>
-            <li>Feature engineering thủ công tốn effort và khó tái sử dụng khi schema thay đổi</li>
+            <li><span class="nw"><strong>XGBoost</strong>&nbsp;hay&nbsp;<strong>LightGBM</strong></span> - <span class="nw">chuyển&nbsp;dữ&nbsp;liệu&nbsp;về&nbsp;bảng&nbsp;phẳng</span> <span class="nw">(feature&nbsp;engineering,&nbsp;join,&nbsp;aggregate)</span> trước khi sử dụng</li>
+            <li>Quá trình <span class="nw">flatten</span> có thể <span class="nw">làm&nbsp;mất&nbsp;thông&nbsp;tin</span> quan hệ giữa thực thể - ví dụ <span class="nw">customer&nbsp;↔&nbsp;loan&nbsp;↔&nbsp;collateral</span></li>
+            <li><span class="nw">Feature&nbsp;engineering</span> thủ công tốn effort và khó tái sử dụng khi <span class="nw">schema</span> thay đổi</li>
           </ul>
         </div>
         <div class="rr-box" style="margin-top:0.75rem">
           <div class="rr-label result">✅ Tiềm năng RDL</div>
           <ul class="rr-list">
-            <li>Kỹ thuật đang được hoàn thiện — có thể <strong>thay thế</strong> cả pipeline flatten + booster truyền thống</li>
-            <li>Giữ nguyên cấu trúc quan hệ dữ liệu ngân hàng — phù hợp bài toán credit risk đa bảng</li>
-            <li>Giảm phụ thuộc vào feature engineering thủ công, tăng khả năng generalize khi dữ liệu nguồn thay đổi</li>
+            <li><span class="nw">Kỹ&nbsp;thuật&nbsp;đang&nbsp;được&nbsp;hoàn&nbsp;thiện</span> - có thể <span class="nw">thay&nbsp;thế</span> cả <span class="nw">pipeline&nbsp;flatten&nbsp;+&nbsp;booster&nbsp;truyền&nbsp;thống</span></li>
+            <li>Giữ nguyên <span class="nw">cấu&nbsp;trúc&nbsp;quan&nbsp;hệ&nbsp;dữ&nbsp;liệu&nbsp;ngân&nbsp;hàng</span> - phù hợp bài toán <span class="nw">credit&nbsp;risk&nbsp;đa&nbsp;bảng</span></li>
+            <li>Giảm phụ thuộc vào <span class="nw">feature&nbsp;engineering</span> thủ công, tăng khả năng <span class="nw">generalize</span> khi <span class="nw">dữ&nbsp;liệu&nbsp;nguồn</span> thay đổi</li>
           </ul>
         </div>
       </div>
@@ -1437,7 +1470,7 @@
   <div class="fade-up">
     <p class="section-label">Demo · Tự động hoá</p>
     <h2 class="section-title">Kiểm tra dữ liệu bằng Excel config</h2>
-    <p class="section-desc">Một file Excel đóng vai trò <strong>từ điển cấu hình</strong> — khai báo kiểu vật lý &amp; ngữ nghĩa cho từng cột, engine Python đọc config và chạy bộ kiểm tra tương ứng trên mọi bảng dữ liệu.</p>
+    <p class="section-desc">Một file Excel đóng vai trò <strong>từ&nbsp;điển&nbsp;cấu&nbsp;hình</strong> - khai báo <span class="nw">kiểu vật lý &amp; ngữ nghĩa</span> cho từng cột, engine Python đọc config và chạy <span class="nw">bộ kiểm tra tương ứng</span> trên mọi bảng dữ liệu.</p>
   </div>
 
   <div class="demo-legend fade-up">
@@ -1538,19 +1571,19 @@
       <div class="demo-flow">
         <div class="demo-flow-step">
           <span class="demo-flow-num">1</span>
-          <span>Đọc <strong>data_check_config.xlsx</strong> — mỗi dòng = một cột cần kiểm tra.</span>
+          <span>Đọc <strong>data_check_config.xlsx</strong> - mỗi dòng = <span class="nw">một cột cần kiểm tra</span>.</span>
         </div>
         <div class="demo-flow-step">
           <span class="demo-flow-num">2</span>
-          <span>Map <strong>physical</strong> để validate format (kiểu dữ liệu, null, sign…).</span>
+          <span>Map <strong>physical</strong> để validate format <span class="nw">(kiểu dữ liệu, null, sign…)</span>.</span>
         </div>
         <div class="demo-flow-step">
           <span class="demo-flow-num">3</span>
-          <span>Map <strong>semantic</strong> để chọn logic nghiệp vụ (duplicate, drift, partition…).</span>
+          <span>Map <strong>semantic</strong> để chọn <span class="nw">logic nghiệp vụ</span> <span class="nw">(duplicate, drift, partition…)</span>.</span>
         </div>
         <div class="demo-flow-step">
           <span class="demo-flow-num">4</span>
-          <span>Chạy theo lịch / sau ETL — báo cáo lỗi tập trung, không cần sửa code khi thêm cột mới.</span>
+          <span>Chạy theo lịch / sau ETL - <span class="nw">báo cáo lỗi tập trung</span>, không cần sửa code khi <span class="nw">thêm cột mới</span>.</span>
         </div>
       </div>
     </div>
@@ -1566,10 +1599,10 @@
         </div>
       </div>
       <ul class="demo-check-list">
-        <li>Kiểm tra <strong>report_date</strong> có phải ngày cuối tháng (EOM) không</li>
-        <li>Phát hiện <strong>thiếu tháng</strong> trong chuỗi partition theo bảng</li>
+        <li>Kiểm tra <strong>report_date</strong> có phải <span class="nw">ngày cuối tháng (EOM)</span> không</li>
+        <li>Phát hiện <strong>thiếu&nbsp;tháng</strong> trong <span class="nw">chuỗi partition theo bảng</span></li>
       </ul>
-      <div class="demo-example">Ví dụ: loan_balance có 2024-01, 2024-03 nhưng thiếu 2024-02 → cảnh báo gap partition.</div>
+      <div class="demo-example">Ví dụ: <code>loan_balance</code> có <span class="nw">2024-01, 2024-03</span> nhưng thiếu <span class="nw">2024-02</span> → cảnh báo <span class="nw">gap partition</span>.</div>
     </div>
 
     <div class="demo-check-card">
@@ -1581,10 +1614,10 @@
         </div>
       </div>
       <ul class="demo-check-list">
-        <li>Kiểm tra <strong>duplicate</strong> trên khóa duy nhất của bảng</li>
-        <li>Mỗi partition chỉ được có một bản ghi / một khóa</li>
+        <li>Kiểm tra <strong>duplicate</strong> trên <span class="nw">khóa duy nhất của bảng</span></li>
+        <li>Mỗi partition chỉ được có <span class="nw">một bản ghi / một khóa</span></li>
       </ul>
-      <div class="demo-example">Ví dụ: <code>loan_account_id</code> xuất hiện 2 lần trong cùng tháng → fail check.</div>
+      <div class="demo-example">Ví dụ: <code>loan_account_id</code> xuất hiện 2 lần trong <span class="nw">cùng tháng</span> → <span class="nw">fail check</span>.</div>
     </div>
 
     <div class="demo-check-card">
@@ -1596,10 +1629,10 @@
         </div>
       </div>
       <ul class="demo-check-list">
-        <li>Theo thời gian: phát hiện <strong>giá trị mới</strong> (chi nhánh mới, quốc tịch mới…)</li>
-        <li><strong>Drift theo loại</strong>: tỷ lệ dòng USD tăng đột biến so với kỳ trước</li>
+        <li>Theo thời gian: phát hiện <strong>giá&nbsp;trị&nbsp;mới</strong> <span class="nw">(chi nhánh mới, quốc tịch mới…)</span></li>
+        <li><strong>Drift&nbsp;theo&nbsp;loại</strong>: <span class="nw">tỷ lệ dòng USD</span> tăng đột biến so với kỳ trước</li>
       </ul>
-      <div class="demo-example">Ví dụ: tháng này xuất hiện <code>branch_code = 999</code> chưa từng có, hoặc % USD nhảy từ 12% → 38%.</div>
+      <div class="demo-example">Ví dụ: tháng này xuất hiện <code>branch_code = 999</code> chưa từng có, hoặc % USD nhảy từ <span class="nw">12% → 38%</span>.</div>
     </div>
 
     <div class="demo-check-card">
@@ -1611,10 +1644,10 @@
         </div>
       </div>
       <ul class="demo-check-list">
-        <li>Cụm ID có gắn với <strong>category duy nhất</strong> không (1-n consistency)</li>
-        <li>Cross-table: cùng <code>customer_id</code> có nhiều địa chỉ / thuộc tính mâu thuẫn?</li>
+        <li>Cụm ID có gắn với <strong>category&nbsp;duy&nbsp;nhất</strong> không <span class="nw">(1-n consistency)</span></li>
+        <li><span class="nw">Cross-table</span>: cùng <code>customer_id</code> có <span class="nw">nhiều địa chỉ / thuộc tính mâu thuẫn</span>?</li>
       </ul>
-      <div class="demo-example">Ví dụ: bảng tiền vay có <code>unique_key = loan_account</code> — nhiều tài khoản cùng <code>customer_id</code> → kiểm tra customer có 2 địa chỉ khác nhau không.</div>
+      <div class="demo-example">Ví dụ: bảng tiền vay có <code>unique_key = loan_account</code> - nhiều tài khoản cùng <code>customer_id</code> → kiểm tra customer có <span class="nw">2 địa chỉ khác nhau</span> không.</div>
     </div>
   </div>
 </section>
